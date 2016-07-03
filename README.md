@@ -1,4 +1,7 @@
-symfony_demo
-============
+Symfony demo with REST API simplification
+=========================================
+-- Both Web and Api are available for the proect.
+-- Web
 
-A Symfony project created on June 5, 2016, 5:16 pm.
+-- Api
+
