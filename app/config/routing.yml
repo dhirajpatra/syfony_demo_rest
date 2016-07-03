@@ -1,0 +1,15 @@
+AcmeTestBundle:
+    resource: "@AcmeTestBundle/Resources/config/routing.yml"
+    prefix:   /acme/test/
+
+app_web:
+    resource: "@AppBundle/Controller/Web"
+    type:     annotation
+    
+app_api:
+    resource: "@AppBundle/Controller/Api"
+    type:     annotation    
+
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /admin

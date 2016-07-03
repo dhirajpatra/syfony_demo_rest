@@ -1,0 +1,35 @@
+AcmeTestBundle_web:
+    resource: "@AcmeTestBundle/Controller/Web"
+    type:     annotation
+
+AcmeTestBundle_api:
+    resource: "@AcmeTestBundle/Controller/Api"
+    type:     annotation
+
+AcmeTestBundle:
+    path: /default/index
+    defaults: { _controller: AcmeTestBundle:Web\Default:index }
+
+AcmeTestBundle_create:
+    path: /default/create/
+    defaults: { _controller: AcmeTestBundle:Web\Default:create }
+
+AcmeTestBundle_show:
+    path: /default/show/{productId}
+    defaults: { _controller: AcmeTestBundle:Web\Default:show }
+
+AcmeTestBundle_update:
+    path: /update/{productId}
+    defaults: { _controller: AcmeTestBundle:Web\Default:update }
+
+AcmeTestBundle_api_new:
+    path: /api/products
+    defaults: { _controller: AcmeTestBundle:Api\Product:new }
+
+AcmeTestBundle_api_show:
+    path: /api/products/show
+    defaults: { _controller: AcmeTestBundle:Api\Product:show }
+
+AcmeTestBundle_update:
+    path: /api/products/update
+    defaults: { _controller: AcmeTestBundle:Api\Product:update }

@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: symfony
+    database_user: root
+    database_password: tanusree1
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: dhiraj.patra@gmail.com
+    mailer_password: gmailtanusree
+    secret: 86afdeeed42059123904d640fc09d05847231285
