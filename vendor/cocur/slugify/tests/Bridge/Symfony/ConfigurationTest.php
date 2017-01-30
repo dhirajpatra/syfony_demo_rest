@@ -9,21 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Cocur\Slugify\Bridge\Symfony;
+namespace Cocur\Slugify\Tests\Bridge\Symfony;
 
+use Cocur\Slugify\Bridge\Symfony\Configuration;
 use Symfony\Component\Config\Definition\Processor;
 
 class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     public function testAll()
     {
-        $configs = array(
-            array(
+        $configs = [
+            [
                 'lowercase' => true,
+                'separator' => '_',
                 'regexp' => 'abcd',
                 'rulesets' => ['burmese', 'hindi']
-            ),
-        );
+            ],
+        ];
 
         $this->process($configs);
     }

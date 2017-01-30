@@ -22,7 +22,7 @@ class TemplateNameParserTest extends TestCase
 
     protected function setUp()
     {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\KernelInterface');
+        $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\KernelInterface')->getMock();
         $kernel
             ->expects($this->any())
             ->method('getBundle')
@@ -85,29 +85,15 @@ class TemplateNameParserTest extends TestCase
     /**
      * @group legacy
      * @dataProvider provideAbsolutePaths
+     * @expectedDeprecation Absolute template path support is deprecated since Symfony 3.1 and will be removed in 4.0.
      */
     public function testAbsolutePathsAreDeprecated($name, $logicalName, $path, $ref)
     {
-        $deprecations = array();
-        set_error_handler(function ($type, $msg) use (&$deprecations) {
-            if (E_USER_DEPRECATED !== $type) {
-                restore_error_handler();
-
-                return call_user_func_array('PHPUnit_Util_ErrorHandler::handleError', func_get_args());
-            }
-
-            $deprecations[] = $msg;
-        });
-
         $template = $this->parser->parse($name);
-
-        restore_error_handler();
 
         $this->assertSame($ref->getLogicalName(), $template->getLogicalName());
         $this->assertSame($logicalName, $template->getLogicalName());
         $this->assertSame($path, $template->getPath());
-        $this->assertCount(1, $deprecations);
-        $this->assertContains('Absolute template path support is deprecated since Symfony 3.1 and will be removed in 4.0.', $deprecations[0]);
     }
 
     public function provideAbsolutePaths()

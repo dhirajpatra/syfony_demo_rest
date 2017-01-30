@@ -23,7 +23,6 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('knp_menu');
 
         $rootNode
-            ->fixXmlConfig('provider')
             ->children()
                 ->arrayNode('providers')
                     ->addDefaultsIfNotSet()
@@ -37,7 +36,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
                     ->children()
-                        ->scalarNode('template')->defaultValue('knp_menu.html.twig')->end()
+                        ->scalarNode('template')->defaultValue('KnpMenuBundle::menu.html.twig')->end()
                     ->end()
                 ->end()
                 ->booleanNode('templating')->defaultFalse()->end()

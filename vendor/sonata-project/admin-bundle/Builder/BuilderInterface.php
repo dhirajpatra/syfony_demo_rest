@@ -17,13 +17,15 @@ use Sonata\AdminBundle\Admin\FieldDescriptionInterface;
 /**
  * Interface BuilderInterface.
  *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 interface BuilderInterface
 {
     /**
-     * @param AdminInterface            $admin
-     * @param FieldDescriptionInterface $fieldDescription
+     * Adds missing information to the given field description from the model manager metadata, and the given admin.
+     *
+     * @param AdminInterface            $admin            will be used to gather information
+     * @param FieldDescriptionInterface $fieldDescription will be modified
      */
     public function fixFieldDescription(AdminInterface $admin, FieldDescriptionInterface $fieldDescription);
 }

@@ -125,7 +125,7 @@ class BlockHelper extends Helper
 
     /**
      * @param string $media    Unused, only kept to not break existing code
-     * @param string $basePath Base path to prepend to the stylesheet urls.
+     * @param string $basePath Base path to prepend to the stylesheet urls
      *
      * @return array|string
      */
@@ -141,7 +141,7 @@ class BlockHelper extends Helper
 
     /**
      * @param string $media    The css media type to use: all|screen|...
-     * @param string $basePath Base path to prepend to the stylesheet urls.
+     * @param string $basePath Base path to prepend to the stylesheet urls
      *
      * @return array|string
      */
@@ -253,7 +253,6 @@ class BlockHelper extends Helper
                 }
 
                 if (!$cacheElement->isExpired() && $cacheElement->getData() instanceof Response) {
-
                     /* @var Response $response */
 
                     if ($this->stopwatch) {

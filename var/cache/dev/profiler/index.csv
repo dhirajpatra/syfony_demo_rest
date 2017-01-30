@@ -1,0 +1,6 @@
+52584f,127.0.0.1,GET,http://symfony_demo/lucky/number,1485755462,ee5bff,200
+ee5bff,127.0.0.1,GET,http://symfony_demo/lucky/number,1485755462,,500
+c26127,127.0.0.1,GET,http://symfony_demo/lucky/number,1485755472,cb437b,200
+cb437b,127.0.0.1,GET,http://symfony_demo/lucky/number,1485755472,,500
+20ef2a,127.0.0.1,GET,http://symfony_demo/lucky/number,1485755541,,200
+a19d60,127.0.0.1,GET,http://symfony_demo/lucky/number,1485755553,,200

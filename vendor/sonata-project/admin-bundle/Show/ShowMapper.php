@@ -18,10 +18,9 @@ use Sonata\AdminBundle\Builder\ShowBuilderInterface;
 use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
 
 /**
- * Class ShowMapper
  * This class is used to simulate the Form API.
  *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class ShowMapper extends BaseGroupedMapper
 {
@@ -109,6 +108,48 @@ class ShowMapper extends BaseGroupedMapper
     {
         $this->admin->removeShowFieldDescription($key);
         $this->list->remove($key);
+
+        return $this;
+    }
+
+    /**
+     * Removes a group.
+     *
+     * @param string $group          The group to delete
+     * @param string $tab            The tab the group belongs to, defaults to 'default'
+     * @param bool   $deleteEmptyTab Whether or not the parent Tab should be deleted too,
+     *                               when the deleted group leaves the tab empty after deletion
+     *
+     * @return $this
+     */
+    public function removeGroup($group, $tab = 'default', $deleteEmptyTab = false)
+    {
+        $groups = $this->getGroups();
+
+        // When the default tab is used, the tabname is not prepended to the index in the group array
+        if ($tab !== 'default') {
+            $group = $tab.'.'.$group;
+        }
+
+        if (isset($groups[$group])) {
+            foreach ($groups[$group]['fields'] as $field) {
+                $this->remove($field);
+            }
+        }
+        unset($groups[$group]);
+
+        $tabs = $this->getTabs();
+        $key = array_search($group, $tabs[$tab]['groups']);
+
+        if (false !== $key) {
+            unset($tabs[$tab]['groups'][$key]);
+        }
+        if ($deleteEmptyTab && count($tabs[$tab]['groups']) == 0) {
+            unset($tabs[$tab]);
+        }
+
+        $this->setTabs($tabs);
+        $this->setGroups($groups);
 
         return $this;
     }

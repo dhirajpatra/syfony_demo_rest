@@ -53,7 +53,7 @@ abstract class AbstractAdapter implements AdapterInterface, LoggerAwareInterface
 
                 foreach ($deferred as $key => $item) {
                     if (null === $item->expiry) {
-                        $byLifetime[0][$namespace.$key] = $item->value;
+                        $byLifetime[0 < $item->defaultLifetime ? $item->defaultLifetime : 0][$namespace.$key] = $item->value;
                     } elseif ($item->expiry > $now) {
                         $byLifetime[$item->expiry - $now][$namespace.$key] = $item->value;
                     } else {
@@ -78,7 +78,7 @@ abstract class AbstractAdapter implements AdapterInterface, LoggerAwareInterface
             return $fs;
         }
 
-        $apcu = new ApcuAdapter($namespace, $defaultLifetime / 5, $version);
+        $apcu = new ApcuAdapter($namespace, (int) $defaultLifetime / 5, $version);
         if (null !== $logger) {
             $apcu->setLogger($logger);
         }
@@ -89,46 +89,46 @@ abstract class AbstractAdapter implements AdapterInterface, LoggerAwareInterface
     /**
      * Fetches several cache items.
      *
-     * @param array $ids The cache identifiers to fetch.
+     * @param array $ids The cache identifiers to fetch
      *
-     * @return array|\Traversable The corresponding values found in the cache.
+     * @return array|\Traversable The corresponding values found in the cache
      */
     abstract protected function doFetch(array $ids);
 
     /**
      * Confirms if the cache contains specified cache item.
      *
-     * @param string $id The identifier for which to check existence.
+     * @param string $id The identifier for which to check existence
      *
-     * @return bool True if item exists in the cache, false otherwise.
+     * @return bool True if item exists in the cache, false otherwise
      */
     abstract protected function doHave($id);
 
     /**
      * Deletes all items in the pool.
      *
-     * @param string The prefix used for all identifiers managed by this pool.
+     * @param string The prefix used for all identifiers managed by this pool
      *
-     * @return bool True if the pool was successfully cleared, false otherwise.
+     * @return bool True if the pool was successfully cleared, false otherwise
      */
     abstract protected function doClear($namespace);
 
     /**
      * Removes multiple items from the pool.
      *
-     * @param array $ids An array of identifiers that should be removed from the pool.
+     * @param array $ids An array of identifiers that should be removed from the pool
      *
-     * @return bool True if the items were successfully removed, false otherwise.
+     * @return bool True if the items were successfully removed, false otherwise
      */
     abstract protected function doDelete(array $ids);
 
     /**
      * Persists several cache items immediately.
      *
-     * @param array $values   The values to cache, indexed by their cache identifier.
-     * @param int   $lifetime The lifetime of the cached values, 0 for persisting until manual cleaning.
+     * @param array $values   The values to cache, indexed by their cache identifier
+     * @param int   $lifetime The lifetime of the cached values, 0 for persisting until manual cleaning
      *
-     * @return array|bool The identifiers that failed to be cached or a boolean stating if caching succeeded or not.
+     * @return array|bool The identifiers that failed to be cached or a boolean stating if caching succeeded or not
      */
     abstract protected function doSave(array $values, $lifetime);
 
@@ -270,9 +270,6 @@ abstract class AbstractAdapter implements AdapterInterface, LoggerAwareInterface
         if (!$item instanceof CacheItem) {
             return false;
         }
-        if ($this->deferred) {
-            $this->commit();
-        }
         $this->deferred[$item->getKey()] = $item;
 
         return $this->commit();
@@ -353,6 +350,33 @@ abstract class AbstractAdapter implements AdapterInterface, LoggerAwareInterface
         }
     }
 
+    /**
+     * Like the native unserialize() function but throws an exception if anything goes wrong.
+     *
+     * @param string $value
+     *
+     * @return mixed
+     *
+     * @throws \Exception
+     */
+    protected static function unserialize($value)
+    {
+        if ('b:0;' === $value) {
+            return false;
+        }
+        $unserializeCallbackHandler = ini_set('unserialize_callback_func', __CLASS__.'::handleUnserializeCallback');
+        try {
+            if (false !== $value = unserialize($value)) {
+                return $value;
+            }
+            throw new \DomainException('Failed to unserialize cached value');
+        } catch (\Error $e) {
+            throw new \ErrorException($e->getMessage(), $e->getCode(), E_ERROR, $e->getFile(), $e->getLine());
+        } finally {
+            ini_set('unserialize_callback_func', $unserializeCallbackHandler);
+        }
+    }
+
     private function getId($key)
     {
         CacheItem::validateKey($key);
@@ -364,13 +388,26 @@ abstract class AbstractAdapter implements AdapterInterface, LoggerAwareInterface
     {
         $f = $this->createCacheItem;
 
-        foreach ($items as $id => $value) {
-            yield $keys[$id] => $f($keys[$id], $value, true);
-            unset($keys[$id]);
+        try {
+            foreach ($items as $id => $value) {
+                $key = $keys[$id];
+                unset($keys[$id]);
+                yield $key => $f($key, $value, true);
+            }
+        } catch (\Exception $e) {
+            CacheItem::log($this->logger, 'Failed to fetch requested items', array('keys' => array_values($keys), 'exception' => $e));
         }
 
         foreach ($keys as $key) {
             yield $key => $f($key, null, false);
         }
+    }
+
+    /**
+     * @internal
+     */
+    public static function handleUnserializeCallback($class)
+    {
+        throw new \DomainException('Class not found: '.$class);
     }
 }

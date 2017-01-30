@@ -100,6 +100,13 @@ btn_add, btn_list, btn_delete and btn_catalogue:
 
     If you need to use a sortable ``sonata_type_model`` check the :doc:`../cookbook/recipe_sortable_sonata_type_model` page.
 
+.. note::
+
+    When using ``sonata_type_model`` with ``btn_add``, a jQuery event will be
+    triggered when a child form is added to the DOM
+    (``sonata-admin-setup-list-modal`` by default and
+    ``sonata-admin-append-form-element`` when using ``edit:inline``).
+
 sonata_type_model_hidden
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Setting a field type of ``sonata_type_model_hidden`` will use an instance of
@@ -560,6 +567,58 @@ example above:
 
 Other specific field configuration options are detailed in the related
 abstraction layer documentation.
+
+Adding a FormBuilderInterface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can add Symfony ``FormBuilderInterface`` instances to the ``FormMapper``. This allows you to
+re-use a model form type. When adding a field using a ``FormBuilderInterface``, the type is guessed.
+
+Given you have a ``PostType`` like this:
+
+.. code-block:: php
+
+    <?php
+    // src/AppBundle/Form/PostType.php
+
+    class PostType extends AbstractType
+    {
+        public function buildForm(FormBuilderInterface $builder, array $options)
+        {
+            $builder
+                ->add('author', EntityType::class, [
+                    'class' => User::class
+                ])
+                ->add('title', TextType::class)
+                ->add('body', TextareaType::class)
+            ;
+        }
+    }
+
+you can reuse it like this:
+
+.. code-block:: php
+
+    <?php
+    // src/AppBundle/Admin/Post.php
+
+    class Post extend AbstractAdmin
+    {
+        protected function configureFormFields(FormMapper $formMapper)
+        {
+            $builder = $formMapper->getFormBuilder()->getFormFactory()->createBuilder(PostType::class);
+
+            $formMapper
+                ->with('Post')
+                    ->add($builder->get('title'))
+                    ->add($builder->get('body'))
+                ->end()
+                ->with('Author')
+                    ->add($builder->get('author'))
+                ->end()
+            ;
+        }
+    }
+
 
 Types options
 -------------

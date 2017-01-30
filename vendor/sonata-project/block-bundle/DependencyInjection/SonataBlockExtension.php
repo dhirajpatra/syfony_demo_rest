@@ -121,7 +121,7 @@ class SonataBlockExtension extends Extension
             return;
         }
 
-        $container->getDefinition('sonata.block.service.menu')->replaceArgument(3, $config['menus']);
+        $container->getDefinition('sonata.block.menu.registry')->replaceArgument(0, $config['menus']);
     }
 
     /**
@@ -274,7 +274,6 @@ class SonataBlockExtension extends Extension
     public function configureClassesToCompile()
     {
         $this->addClassesToCompile(array(
-            'Sonata\\BlockBundle\\Block\\BaseBlockService',
             'Sonata\\BlockBundle\\Block\\BlockLoaderChain',
             'Sonata\\BlockBundle\\Block\\BlockLoaderInterface',
             'Sonata\\BlockBundle\\Block\\BlockRenderer',

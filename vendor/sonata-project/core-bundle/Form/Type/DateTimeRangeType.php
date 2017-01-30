@@ -20,15 +20,32 @@ use Symfony\Component\Translation\TranslatorInterface;
 class DateTimeRangeType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
+     * NEXT_MAJOR: remove this property.
+     *
+     * @var TranslatorInterface|null
+     *
+     * @deprecated translator property is deprecated since version 3.1, to be removed in 4.0
      */
     protected $translator;
 
     /**
-     * @param TranslatorInterface $translator
+     * NEXT_MAJOR: remove this method.
+     *
+     * @param TranslatorInterface|null $translator
+     *
+     * @deprecated translator dependency is deprecated since version 3.1, to be removed in 4.0
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator = null)
     {
+        // check if class is overloaded and notify about removing deprecated translator
+        if ($translator !== null && get_class($this) !== get_class() && get_class($this) !== 'Sonata\CoreBundle\Form\Type\DateTimeRangePickerType') {
+            @trigger_error(
+                'The translator dependency in '.__CLASS__.' is deprecated since 3.1 and will be removed in 4.0. '.
+                'Please prepare your dependencies for this change.',
+                E_USER_DEPRECATED
+            );
+        }
+
         $this->translator = $translator;
     }
 
@@ -39,14 +56,16 @@ class DateTimeRangeType extends AbstractType
     {
         $options['field_options_start'] = array_merge(
             array(
-                'label' => $this->translator->trans('date_range_start', array(), 'SonataCoreBundle'),
+                'label' => 'date_range_start',
+                'translation_domain' => 'SonataCoreBundle',
             ),
             $options['field_options_start']
         );
 
         $options['field_options_end'] = array_merge(
             array(
-                'label' => $this->translator->trans('date_range_end', array(), 'SonataCoreBundle'),
+                'label' => 'date_range_end',
+                'translation_domain' => 'SonataCoreBundle',
             ),
             $options['field_options_end']
         );
@@ -90,7 +109,11 @@ class DateTimeRangeType extends AbstractType
             'field_options' => array(),
             'field_options_start' => array(),
             'field_options_end' => array(),
-            'field_type' => 'datetime',
+            // NEXT_MAJOR: Remove ternary and keep 'Symfony\Component\Form\Extension\Core\Type\DateTimeType'
+            // (when requirement of Symfony is >= 2.8)
+            'field_type' => method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+                ? 'Symfony\Component\Form\Extension\Core\Type\DateTimeType'
+                : 'datetime',
         ));
     }
 }

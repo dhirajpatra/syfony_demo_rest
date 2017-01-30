@@ -18,10 +18,9 @@ use Sonata\AdminBundle\Builder\ListBuilderInterface;
 use Sonata\AdminBundle\Mapper\BaseMapper;
 
 /**
- * Class ListMapper
  * This class is used to simulate the Form API.
  *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class ListMapper extends BaseMapper
 {
@@ -78,7 +77,11 @@ class ListMapper extends BaseMapper
         // Change deprecated inline action "view" to "show"
         if ($name == '_action' && $type == 'actions') {
             if (isset($fieldDescriptionOptions['actions']['view'])) {
-                @trigger_error('Inline action "view" is deprecated since version 2.2.4 and will be removed in 4.0. Use inline action "show" instead.', E_USER_DEPRECATED);
+                @trigger_error(
+                    'Inline action "view" is deprecated since version 2.2.4 and will be removed in 4.0. '
+                    .'Use inline action "show" instead.',
+                    E_USER_DEPRECATED
+                );
 
                 $fieldDescriptionOptions['actions']['show'] = $fieldDescriptionOptions['actions']['view'];
 
@@ -96,7 +99,10 @@ class ListMapper extends BaseMapper
             $fieldDescription->mergeOptions($fieldDescriptionOptions);
         } elseif (is_string($name)) {
             if ($this->admin->hasListFieldDescription($name)) {
-                throw new \RuntimeException(sprintf('Duplicate field name "%s" in list mapper. Names should be unique.', $name));
+                throw new \RuntimeException(sprintf(
+                    'Duplicate field name "%s" in list mapper. Names should be unique.',
+                    $name
+                ));
             }
 
             $fieldDescription = $this->admin->getModelManager()->getNewFieldDescriptionInstance(
@@ -105,11 +111,17 @@ class ListMapper extends BaseMapper
                 $fieldDescriptionOptions
             );
         } else {
-            throw new \RuntimeException('Unknown field name in list mapper. Field name should be either of FieldDescriptionInterface interface or string.');
+            throw new \RuntimeException(
+                'Unknown field name in list mapper. '
+                .'Field name should be either of FieldDescriptionInterface interface or string.'
+            );
         }
 
         if (!$fieldDescription->getLabel()) {
-            $fieldDescription->setOption('label', $this->admin->getLabelTranslatorStrategy()->getLabel($fieldDescription->getName(), 'list', 'label'));
+            $fieldDescription->setOption(
+                'label',
+                $this->admin->getLabelTranslatorStrategy()->getLabel($fieldDescription->getName(), 'list', 'label')
+            );
         }
 
         // add the field with the FormBuilder

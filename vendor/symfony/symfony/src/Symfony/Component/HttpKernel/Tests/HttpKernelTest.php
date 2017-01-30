@@ -292,7 +292,7 @@ class HttpKernelTest extends \PHPUnit_Framework_TestCase
     {
         $request = new Request();
 
-        $stack = $this->getMock('Symfony\Component\HttpFoundation\RequestStack', array('push', 'pop'));
+        $stack = $this->getMockBuilder('Symfony\Component\HttpFoundation\RequestStack')->setMethods(array('push', 'pop'))->getMock();
         $stack->expects($this->at(0))->method('push')->with($this->equalTo($request));
         $stack->expects($this->at(1))->method('pop');
 
@@ -302,19 +302,39 @@ class HttpKernelTest extends \PHPUnit_Framework_TestCase
         $kernel->handle($request, HttpKernelInterface::MASTER_REQUEST);
     }
 
+    /**
+     * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     */
+    public function testInconsistentClientIpsOnMasterRequests()
+    {
+        $request = new Request();
+        $request->setTrustedProxies(array('1.1.1.1'));
+        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->headers->set('FORWARDED', '2.2.2.2');
+        $request->headers->set('X_FORWARDED_FOR', '3.3.3.3');
+
+        $dispatcher = new EventDispatcher();
+        $dispatcher->addListener(KernelEvents::REQUEST, function ($event) {
+            $event->getRequest()->getClientIp();
+        });
+
+        $kernel = $this->getHttpKernel($dispatcher);
+        $kernel->handle($request, $kernel::MASTER_REQUEST, false);
+    }
+
     private function getHttpKernel(EventDispatcherInterface $eventDispatcher, $controller = null, RequestStack $requestStack = null, array $arguments = array())
     {
         if (null === $controller) {
             $controller = function () { return new Response('Hello'); };
         }
 
-        $controllerResolver = $this->getMock(ControllerResolverInterface::class);
+        $controllerResolver = $this->getMockBuilder(ControllerResolverInterface::class)->getMock();
         $controllerResolver
             ->expects($this->any())
             ->method('getController')
             ->will($this->returnValue($controller));
 
-        $argumentResolver = $this->getMock(ArgumentResolverInterface::class);
+        $argumentResolver = $this->getMockBuilder(ArgumentResolverInterface::class)->getMock();
         $argumentResolver
             ->expects($this->any())
             ->method('getArguments')

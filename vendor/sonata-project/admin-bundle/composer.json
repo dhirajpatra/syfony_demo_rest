@@ -21,8 +21,8 @@
         "doctrine/common": "^2.2",
         "doctrine/inflector": "^1.0",
         "knplabs/knp-menu-bundle": "^2.1.1",
-        "sonata-project/block-bundle": "^3.0",
-        "sonata-project/core-bundle": "^3.0",
+        "sonata-project/block-bundle": "^3.2",
+        "sonata-project/core-bundle": "^3.1",
         "sonata-project/exporter": "^1.0",
         "symfony/class-loader": "^2.3 || ^3.0",
         "symfony/config": "^2.3.9 || ^3.0",
@@ -40,7 +40,7 @@
         "symfony/twig-bridge": "^2.3.5 || ^3.0",
         "symfony/validator": "^2.3 || ^3.0",
         "twig/extensions": "^1.0",
-        "twig/twig": "^1.23"
+        "twig/twig": "^1.26"
     },
     "require-dev": {
         "jms/di-extra-bundle": "^1.7",
@@ -61,8 +61,14 @@
         "sonata-project/intl-bundle": "Add localized date and number into the list"
     },
     "autoload": {
-        "psr-4": { "Sonata\\AdminBundle\\": "" }
+        "psr-4": { "Sonata\\AdminBundle\\": "" },
+        "exclude-from-classmap": [
+            "Tests/"
+        ]
     },
+    "autoload-dev": {
+        "psr-4": { "Sonata\\AdminBundle\\Tests\\": "Tests/" }
+     },
     "config": {
         "sort-packages": true
     },

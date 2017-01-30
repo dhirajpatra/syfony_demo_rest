@@ -43,12 +43,14 @@ class Slugify implements SlugifyInterface
      */
     protected $options = [
         'regexp'    => self::LOWERCASE_NUMBERS_DASHES,
+        'separator' => '-',
         'lowercase' => true,
         'rulesets'  => [
             'default',
             // Languages are preferred if they appear later, list is ordered by number of
             // websites in that language
             // https://en.wikipedia.org/wiki/Languages_used_on_the_Internet#Content_languages_for_websites
+            'azerbaijani',
             'burmese',
             'hindi',
             'georgian',
@@ -84,16 +86,19 @@ class Slugify implements SlugifyInterface
     /**
      * Returns the slug-version of the string.
      *
-     * @param string $string    String to slugify
-     * @param string $separator Separator
+     * @param string      $string    String to slugify
+     * @param string|null $separator Separator
      *
      * @return string Slugified version of the string
      */
-    public function slugify($string, $separator = '-')
+    public function slugify($string, $separator = null)
     {
         $string = strtr($string, $this->rules);
         if ($this->options['lowercase']) {
             $string = mb_strtolower($string);
+        }
+        if ($separator === null) {
+            $separator = $this->options['separator'];
         }
         $string = preg_replace($this->options['regexp'], $separator, $string);
 

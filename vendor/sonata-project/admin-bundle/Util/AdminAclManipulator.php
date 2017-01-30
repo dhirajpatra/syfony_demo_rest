@@ -19,9 +19,7 @@ use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
 use Symfony\Component\Security\Acl\Model\AclInterface;
 
 /**
- * Class AdminAclManipulator.
- *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class AdminAclManipulator implements AdminAclManipulatorInterface
 {
@@ -113,8 +111,8 @@ class AdminAclManipulator implements AdminAclManipulatorInterface
             }
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }

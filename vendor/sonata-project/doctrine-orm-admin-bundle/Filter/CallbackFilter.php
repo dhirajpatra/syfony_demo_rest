@@ -34,8 +34,12 @@ class CallbackFilter extends Filter
     {
         return array(
             'callback' => null,
-            'field_type' => 'text',
-            'operator_type' => 'hidden',
+            'field_type' => method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+                ? 'Symfony\Component\Form\Extension\Core\Type\TextType'
+                : 'text', // NEXT_MAJOR: Remove ternary (when requirement of Symfony is >= 2.8)
+            'operator_type' => method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+                ? 'Symfony\Component\Form\Extension\Core\Type\HiddenType'
+                : 'hidden', // NEXT_MAJOR: Remove ternary (when requirement of Symfony is >= 2.8)
             'operator_options' => array(),
         );
     }
@@ -45,7 +49,12 @@ class CallbackFilter extends Filter
      */
     public function getRenderSettings()
     {
-        return array('sonata_type_filter_default', array(
+        // NEXT_MAJOR: Remove this line when drop Symfony <2.8 support
+        $type = method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+            ? 'Sonata\AdminBundle\Form\Type\Filter\DefaultType'
+            : 'sonata_type_filter_default';
+
+        return array($type, array(
             'field_type' => $this->getFieldType(),
             'field_options' => $this->getFieldOptions(),
             'operator_type' => $this->getOption('operator_type'),

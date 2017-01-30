@@ -23,9 +23,7 @@ use Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
 /**
- * Class AdminHelper.
- *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class AdminHelper
 {
@@ -48,7 +46,7 @@ class AdminHelper
      * @param FormBuilderInterface $formBuilder
      * @param string               $elementId
      *
-     * @return FormBuilderInterface
+     * @return FormBuilderInterface|null
      */
     public function getChildFormBuilder(FormBuilderInterface $formBuilder, $elementId)
     {
@@ -79,6 +77,8 @@ class AdminHelper
     }
 
     /**
+     * NEXT_MAJOR: remove this method.
+     *
      * @deprecated
      *
      * @param string $code
@@ -219,13 +219,15 @@ class AdminHelper
     /**
      * Camelize a string.
      *
+     * NEXT_MAJOR: remove this method.
+     *
      * @static
      *
      * @param string $property
      *
      * @return string
      *
-     * @deprecated Deprecated since version 3.1. Use \Doctrine\Common\Inflector\Inflector::classify() instead.
+     * @deprecated Deprecated since version 3.1. Use \Doctrine\Common\Inflector\Inflector::classify() instead
      */
     public function camelize($property)
     {
@@ -293,9 +295,9 @@ class AdminHelper
         $associationAdmin = $admin->getFormFieldDescription($element)->getAssociationAdmin();
         if (count($elements) == 0) {
             return $associationAdmin->getClass();
-        } else {
-            return $this->getEntityClassName($associationAdmin, $elements);
         }
+
+        return $this->getEntityClassName($associationAdmin, $elements);
     }
 
     /**

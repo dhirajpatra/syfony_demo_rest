@@ -37,7 +37,7 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
      */
     private $provider;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->provider = Mockery::mock('\Cocur\Slugify\RuleProvider\RuleProviderInterface');
         $this->provider->shouldReceive('getRules')->andReturn([]);
@@ -137,6 +137,55 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->slugify->slugify($actual));
     }
 
+    /**
+     * @test
+     * @dataProvider customRulesProvider
+     */
+    public function customRules($rule, $string, $result)
+    {
+        $slugify = new Slugify();
+        $slugify->activateRuleSet($rule);
+
+        $this->assertSame($result, $slugify->slugify($string));
+    }
+
+    public function customRulesProvider()
+    {
+        return [
+            ['azerbaijani', 'əöüğşçı', 'eougsci'],
+            ['azerbaijani', 'Fərhad Səfərov', 'ferhad-seferov'],
+            ['croatian', 'Č Ć Ž Š Đ č ć ž š đ', 'c-c-z-s-dj-c-c-z-s-dj'],
+        ];
+    }
+
+    /**
+     * @test
+     * @covers Cocur\Slugify\Slugify::__construct()
+     * @covers Cocur\Slugify\Slugify::slugify()
+     */
+    public function slugifyDefaultsToSeparatorOption()
+    {
+        $actual   = 'file name';
+        $expected = 'file__name';
+
+        $this->slugify = new Slugify(['separator' => '__']);
+        $this->assertEquals($expected, $this->slugify->slugify($actual));
+    }
+
+    /**
+     * @test
+     * @covers Cocur\Slugify\Slugify::__construct()
+     * @covers Cocur\Slugify\Slugify::slugify()
+     */
+    public function slugifyHonorsSeparatorArgument()
+    {
+        $actual   = 'file name';
+        $expected = 'file__name';
+
+        $this->slugify = new Slugify(['separator' => 'dummy']);
+        $this->assertEquals($expected, $this->slugify->slugify($actual, '__'));
+    }
+
     public function defaultRuleProvider()
     {
         return [
@@ -174,6 +223,7 @@ class SlugifyTest extends \PHPUnit_Framework_TestCase
             [str_repeat('Übergrößenträger', 1000), str_repeat('uebergroessentraeger', 1000)],
             [str_repeat('my🎉', 5000), substr(str_repeat('my-', 5000), 0, -1)],
             [str_repeat('hi🇦🇹', 5000), substr(str_repeat('hi-', 5000), 0, -1)],
+			['Č Ć Ž Š Đ č ć ž š đ', 'c-c-z-s-d-c-c-z-s-d'],
         ];
     }
 }

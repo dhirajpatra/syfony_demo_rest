@@ -119,32 +119,3 @@ sensio_framework_extra:
     request: { converters: true }
     view:    { annotations: false }
     router:  { annotations: true }
-
-guzzle:
-    clients:
-        api_payment:
-            base_url: "http://symfony_demo"
-
-            # custom headers
-            headers:
-                Accept: "application/json"
-
-            # guzzle client options (full description here: http://guzzle.readthedocs.org/en/latest/request-options.html)
-            # NOTE: "headers" option is not accepted here as it is provided as described above.
-            options:
-                auth:
-                    -      # login
-                    -  # password
-                timeout:
-
-            # plugin settings
-            plugin:
-               # wsse:
-                #    username:   ""
-                #    password:   ""
-                #    created_at: "" # optional
-
-        api_crm:
-            base_url: "http://symfony_demo"
-            headers:
-                Accept: "application/json"

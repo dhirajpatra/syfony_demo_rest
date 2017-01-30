@@ -18,16 +18,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Class ChoiceTypeExtension.
- *
- * @author  Amine Zaghdoudi <amine.zaghdoudi@ekino.com>
+ * @author Amine Zaghdoudi <amine.zaghdoudi@ekino.com>
  */
 class ChoiceTypeExtension extends AbstractTypeExtension
 {
     /**
-     * {@inheritdoc}
+     * NEXT_MAJOR: Remove method, when bumping requirements to SF 2.7+.
      *
-     * @todo Remove it when bumping requirements to SF 2.7+
+     * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {

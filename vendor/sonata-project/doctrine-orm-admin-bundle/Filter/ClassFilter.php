@@ -30,7 +30,7 @@ class ClassFilter extends Filter
             return;
         }
 
-        $data['type'] = !isset($data['type']) ?  EqualType::TYPE_IS_EQUAL : $data['type'];
+        $data['type'] = !isset($data['type']) ? EqualType::TYPE_IS_EQUAL : $data['type'];
 
         $operator = $this->getOperator((int) $data['type']);
 
@@ -54,7 +54,11 @@ class ClassFilter extends Filter
      */
     public function getFieldType()
     {
-        return $this->getOption('field_type', 'choice');
+        // NEXT_MAJOR: Remove ternary (when requirement of Symfony is >= 2.8)
+        return $this->getOption('field_type', method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+            ? 'Symfony\Component\Form\Extension\Core\Type\ChoiceType'
+            : 'choice'
+        );
     }
 
     /**
@@ -76,8 +80,15 @@ class ClassFilter extends Filter
      */
     public function getRenderSettings()
     {
-        return array('sonata_type_filter_default', array(
-            'operator_type' => 'sonata_type_equal',
+        // NEXT_MAJOR: Remove this line when drop Symfony <2.8 support
+        $type = method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+            ? 'Sonata\AdminBundle\Form\Type\Filter\DefaultType'
+            : 'sonata_type_filter_default';
+
+        return array($type, array(
+            'operator_type' => method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+                ? 'Sonata\CoreBundle\Form\Type\EqualType'
+                : 'sonata_type_equal', // NEXT_MAJOR: Remove ternary (when requirement of Symfony is >= 2.8)
             'field_type' => $this->getFieldType(),
             'field_options' => $this->getFieldOptions(),
             'label' => $this->getLabel(),

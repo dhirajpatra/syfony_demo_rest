@@ -15,7 +15,7 @@ use Sonata\AdminBundle\Admin\AdminHelper;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Admin\Pool;
 use Sonata\AdminBundle\Filter\FilterInterface;
-use Symfony\Component\Form\FormInterface;
+use Symfony\Bridge\Twig\Form\TwigRenderer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,9 +26,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\ValidatorInterface as LegacyValidatorInterface;
 
 /**
- * Class HelperController.
- *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class HelperController
 {
@@ -108,13 +106,10 @@ class HelperController
         $view = $this->helper->getChildFormView($form->createView(), $elementId);
 
         // render the widget
-        // todo : fix this, the twig environment variable is not set inside the extension ...
+        $renderer = $this->getFormRenderer();
+        $renderer->setTheme($view, $admin->getFormTheme());
 
-        $extension = $this->twig->getExtension('form');
-        $extension->initRuntime($this->twig);
-        $extension->renderer->setTheme($view, $admin->getFormTheme());
-
-        return new Response($extension->renderer->searchAndRenderBlock($view, 'widget'));
+        return new Response($renderer->searchAndRenderBlock($view, 'widget'));
     }
 
     /**
@@ -149,7 +144,7 @@ class HelperController
 
         $admin->setSubject($subject);
 
-        $formBuilder = $admin->getFormBuilder($subject);
+        $formBuilder = $admin->getFormBuilder();
 
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
@@ -157,12 +152,10 @@ class HelperController
         $view = $this->helper->getChildFormView($form->createView(), $elementId);
 
         // render the widget
-        // todo : fix this, the twig environment variable is not set inside the extension ...
-        $extension = $this->twig->getExtension('form');
-        $extension->initRuntime($this->twig);
-        $extension->renderer->setTheme($view, $admin->getFormTheme());
+        $renderer = $this->getFormRenderer();
+        $renderer->setTheme($view, $admin->getFormTheme());
 
-        return new Response($extension->renderer->searchAndRenderBlock($view, 'widget'));
+        return new Response($renderer->searchAndRenderBlock($view, 'widget'));
     }
 
     /**
@@ -213,9 +206,8 @@ class HelperController
                 'object' => $object,
                 'link_parameters' => $linkParameters,
             )));
-        } else {
-            throw new \RuntimeException('Invalid format');
         }
+        throw new \RuntimeException('Invalid format');
     }
 
     /**
@@ -302,7 +294,7 @@ class HelperController
 
         // render the widget
         // todo : fix this, the twig environment variable is not set inside the extension ...
-        $extension = $this->twig->getExtension('sonata_admin');
+        $extension = $this->twig->getExtension('Sonata\AdminBundle\Twig\Extension\SonataAdminExtension');
 
         $content = $extension->renderListElement($this->twig, $rootObject, $fieldDescription);
 
@@ -451,7 +443,7 @@ class HelperController
      * @param AdminInterface $admin
      * @param string         $field
      *
-     * @return FormInterface
+     * @return \Sonata\AdminBundle\Admin\FieldDescriptionInterface
      *
      * @throws \RuntimeException
      */
@@ -478,7 +470,7 @@ class HelperController
      * @param AdminInterface $admin
      * @param string         $field
      *
-     * @return FormInterface
+     * @return \Sonata\AdminBundle\Admin\FieldDescriptionInterface
      *
      * @throws \RuntimeException
      */
@@ -497,5 +489,24 @@ class HelperController
         }
 
         return $fieldDescription;
+    }
+
+    /**
+     * @return TwigRenderer
+     */
+    private function getFormRenderer()
+    {
+        try {
+            $runtime = $this->twig->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer');
+            $runtime->setEnvironment($this->twig);
+
+            return $runtime;
+        } catch (\Twig_Error_Runtime $e) {
+            // BC for Symfony < 3.2 where this runtime not exists
+            $extension = $this->twig->getExtension('Symfony\Bridge\Twig\Extension\FormExtension');
+            $extension->initRuntime($this->twig);
+
+            return $extension->renderer;
+        }
     }
 }

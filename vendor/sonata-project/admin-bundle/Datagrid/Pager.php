@@ -12,10 +12,8 @@
 namespace Sonata\AdminBundle\Datagrid;
 
 /**
- * Class Pager.
- *
- * @author  Fabien Potencier <fabien.potencier@symfony-project.com>
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Fabien Potencier <fabien.potencier@symfony-project.com>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInterface
 {
@@ -58,7 +56,7 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
     protected $currentMaxLink = 1;
 
     /**
-     * @var bool
+     * @var mixed bool|int
      */
     protected $maxRecordLimit = false;
 
@@ -69,7 +67,7 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
 
     // used by iterator interface
     /**
-     * @var array|null
+     * @var \Traversable|array|null
      */
     protected $results = null;
 
@@ -89,8 +87,6 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
     protected $countColumn = array('id');
 
     /**
-     * Constructor.
-     *
      * @param int $maxPerPage Number of records to display per page
      */
     public function __construct($maxPerPage = 10)
@@ -227,9 +223,9 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
     {
         if ($this->cursor + 1 > $this->nbResults) {
             return;
-        } else {
-            return $this->retrieveObject($this->cursor + 1);
         }
+
+        return $this->retrieveObject($this->cursor + 1);
     }
 
     /**
@@ -241,9 +237,9 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
     {
         if ($this->cursor - 1 < 1) {
             return;
-        } else {
-            return $this->retrieveObject($this->cursor - 1);
         }
+
+        return $this->retrieveObject($this->cursor - 1);
     }
 
     /**
@@ -251,13 +247,29 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
      *
      * @return int
      */
-    public function getFirstIndice()
+    public function getFirstIndex()
     {
         if ($this->page == 0) {
             return 1;
-        } else {
-            return ($this->page - 1) * $this->maxPerPage + 1;
         }
+
+        return ($this->page - 1) * $this->maxPerPage + 1;
+    }
+
+    /**
+     * NEXT_MAJOR: remove this method.
+     *
+     * @deprecated since 3.11, will be removed in 4.0
+     */
+    public function getFirstIndice()
+    {
+        @trigger_error(
+            'Method '.__METHOD__.' is deprecated since version 3.11 and will be removed in 4.0, '.
+            'please use getFirstIndex() instead.',
+            E_USER_DEPRECATED
+        );
+
+        return $this->getFirstIndex();
     }
 
     /**
@@ -265,17 +277,32 @@ abstract class Pager implements \Iterator, \Countable, \Serializable, PagerInter
      *
      * @return int
      */
-    public function getLastIndice()
+    public function getLastIndex()
     {
         if ($this->page == 0) {
             return $this->nbResults;
-        } else {
-            if ($this->page * $this->maxPerPage >= $this->nbResults) {
-                return $this->nbResults;
-            } else {
-                return $this->page * $this->maxPerPage;
-            }
         }
+        if ($this->page * $this->maxPerPage >= $this->nbResults) {
+            return $this->nbResults;
+        }
+
+        return $this->page * $this->maxPerPage;
+    }
+
+    /**
+     * NEXT_MAJOR: remove this method.
+     *
+     * @deprecated since 3.11, will be removed in 4.0
+     */
+    public function getLastIndice()
+    {
+        @trigger_error(
+            'Method '.__METHOD__.' is deprecated since version 3.11 and will be removed in 4.0, '.
+            'please use getLastIndex() instead.',
+            E_USER_DEPRECATED
+        );
+
+        return $this->getLastIndex();
     }
 
     /**

@@ -27,7 +27,7 @@ class SymfonyTestsListener extends \PHPUnit_Framework_BaseTestListener
     private $isSkipped = array();
 
     /**
-     * @param array $mockedNamespaces List of namespaces, indexed by mocked features (time-sensitive or dns-sensitive).
+     * @param array $mockedNamespaces List of namespaces, indexed by mocked features (time-sensitive or dns-sensitive)
      */
     public function __construct(array $mockedNamespaces = array())
     {
@@ -142,7 +142,7 @@ class SymfonyTestsListener extends \PHPUnit_Framework_BaseTestListener
     public function startTest(\PHPUnit_Framework_Test $test)
     {
         if (-2 < $this->state && $test instanceof \PHPUnit_Framework_TestCase) {
-            $groups = \PHPUnit_Util_Test::getGroups(get_class($test), $test->getName());
+            $groups = \PHPUnit_Util_Test::getGroups(get_class($test), $test->getName(false));
 
             if (in_array('time-sensitive', $groups, true)) {
                 ClockMock::register(get_class($test));
@@ -157,7 +157,7 @@ class SymfonyTestsListener extends \PHPUnit_Framework_BaseTestListener
     public function endTest(\PHPUnit_Framework_Test $test, $time)
     {
         if (-2 < $this->state && $test instanceof \PHPUnit_Framework_TestCase) {
-            $groups = \PHPUnit_Util_Test::getGroups(get_class($test), $test->getName());
+            $groups = \PHPUnit_Util_Test::getGroups(get_class($test), $test->getName(false));
 
             if (in_array('time-sensitive', $groups, true)) {
                 ClockMock::withClockMock(false);

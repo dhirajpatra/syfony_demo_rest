@@ -17,7 +17,6 @@ to allow other parts of your application to add more stuff to it.
 
   namespace AppBundle\Menu;
 
-  use AppBundle\MenuEvents;
   use AppBundle\Event\ConfigureMenuEvent;
   use Knp\Menu\FactoryInterface;
   use Symfony\Component\DependencyInjection\ContainerAware;
@@ -64,7 +63,7 @@ it will hold the menu being created and the factory.
 
     class ConfigureMenuEvent extends Event
     {
-        const CONFIGURE = 'acme_demo.menu_configure';
+        const CONFIGURE = 'app.menu_configure';
 
         private $factory;
         private $menu;

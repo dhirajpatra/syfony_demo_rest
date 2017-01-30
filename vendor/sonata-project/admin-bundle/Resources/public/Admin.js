@@ -14,8 +14,8 @@ var Admin = {
     collectionCounters: [],
 
     /**
-     * This function must called when a ajax call is done, to ensure
-     * retrieve html is properly setup
+     * This function must be called when an ajax call is done, to ensure
+     * the retrieved html is properly setup
      *
      * @param subject
      */
@@ -31,6 +31,7 @@ var Admin = {
         Admin.setup_tree_view(subject);
         Admin.setup_collection_counter(subject);
         Admin.setup_sticky_elements(subject);
+        Admin.setup_readmore_elements(subject);
 
 //        Admin.setup_list_modal(subject);
     },
@@ -54,9 +55,11 @@ var Admin = {
             padding: 15,
             overflow: 'auto'
         });
+      
+        jQuery(modal).trigger('sonata-admin-setup-list-modal');
     },
     setup_select2: function(subject) {
-        if (window.SONATA_CONFIG && window.SONATA_CONFIG.USE_SELECT2 && window.Select2) {
+        if (window.SONATA_CONFIG && window.SONATA_CONFIG.USE_SELECT2) {
             Admin.log('[core|setup_select2] configure Select2 on', subject);
 
             jQuery('select:not([data-sonata-select2="false"])', subject).each(function() {
@@ -74,7 +77,9 @@ var Admin = {
 
                 select.select2({
                     width: function(){
-                        return Admin.get_select2_width(this.element);
+                        // Select2 v3 and v4 BC. If window.Select2 is defined, then the v3 is installed.
+                        // NEXT_MAJOR: Remove Select2 v3 support.
+                        return Admin.get_select2_width(window.Select2 ? this.element : jQuery(this));
                     },
                     dropdownAutoWidth: true,
                     minimumResultsForSearch: 10,
@@ -138,6 +143,8 @@ var Admin = {
     },
 
     /**
+     * NEXT_MAJOR: remove this function.
+     *
      * @deprecated in version 3.0
      */
     add_pretty_errors: function() {
@@ -446,7 +453,9 @@ var Admin = {
 
         subject.select2({
             width: function(){
-                return Admin.get_select2_width(this.element);
+                // Select2 v3 and v4 BC. If window.Select2 is defined, then the v3 is installed.
+                // NEXT_MAJOR: Remove Select2 v3 support.
+                return Admin.get_select2_width(window.Select2 ? this.element : jQuery(this));
             },
             dropdownAutoWidth: true,
             data: transformedData,
@@ -588,6 +597,17 @@ var Admin = {
                 func.apply(context, args);
             }
         };
+    },
+    setup_readmore_elements: function(subject) {
+        Admin.log('[core|setup_readmore_elements] setup readmore elements on', subject);
+
+        jQuery(subject).find('.sonata-readmore').each(function(i, ui){
+            jQuery(this).readmore({
+                collapsedHeight: parseInt(jQuery(this).data('readmore-height')),
+                moreLink: '<a href="#">'+jQuery(this).data('readmore-more')+'</a>',
+                lessLink: '<a href="#">'+jQuery(this).data('readmore-less')+'</a>'
+            });
+        });
     }
 };
 

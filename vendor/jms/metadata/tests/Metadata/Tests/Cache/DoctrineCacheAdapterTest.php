@@ -6,6 +6,9 @@ use Metadata\ClassMetadata;
 use Metadata\Cache\DoctrineCacheAdapter;
 use Doctrine\Common\Cache\ArrayCache;
 
+/**
+ * @requires PHP 5.4
+ */
 class DoctrineCacheAdapterTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()

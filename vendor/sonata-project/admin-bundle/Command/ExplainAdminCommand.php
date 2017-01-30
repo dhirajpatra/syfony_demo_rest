@@ -17,9 +17,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class ExplainAdminCommand.
- *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class ExplainAdminCommand extends ContainerAwareCommand
 {
@@ -42,7 +40,7 @@ class ExplainAdminCommand extends ContainerAwareCommand
         $admin = $this->getContainer()->get($input->getArgument('admin'));
 
         if (!$admin instanceof \Sonata\AdminBundle\Admin\AdminInterface) {
-            throw new \RunTimeException(sprintf('Service "%s" is not an admin class', $input->getArgument('admin')));
+            throw new \RuntimeException(sprintf('Service "%s" is not an admin class', $input->getArgument('admin')));
         }
 
         $output->writeln('<comment>AdminBundle Information</comment>');
@@ -68,13 +66,23 @@ class ExplainAdminCommand extends ContainerAwareCommand
         $output->writeln('');
         $output->writeln('<info>Datagrid Columns</info>');
         foreach ($admin->getListFieldDescriptions() as $name => $fieldDescription) {
-            $output->writeln(sprintf('  - % -25s  % -15s % -15s', $name, $fieldDescription->getType(), $fieldDescription->getTemplate()));
+            $output->writeln(sprintf(
+                '  - % -25s  % -15s % -15s',
+                $name,
+                $fieldDescription->getType(),
+                $fieldDescription->getTemplate()
+            ));
         }
 
         $output->writeln('');
         $output->writeln('<info>Datagrid Filters</info>');
         foreach ($admin->getFilterFieldDescriptions() as $name => $fieldDescription) {
-            $output->writeln(sprintf('  - % -25s  % -15s % -15s', $name, $fieldDescription->getType(), $fieldDescription->getTemplate()));
+            $output->writeln(sprintf(
+                '  - % -25s  % -15s % -15s',
+                $name,
+                $fieldDescription->getType(),
+                $fieldDescription->getTemplate()
+            ));
         }
 
         $output->writeln('');
@@ -86,12 +94,26 @@ class ExplainAdminCommand extends ContainerAwareCommand
         $output->writeln('');
         $output->writeln('<info>Form Fields</info>');
         foreach ($admin->getFormFieldDescriptions() as $name => $fieldDescription) {
-            $output->writeln(sprintf('  - % -25s  % -15s % -15s', $name, $fieldDescription->getType(), $fieldDescription->getTemplate()));
+            $output->writeln(sprintf(
+                '  - % -25s  % -15s % -15s',
+                $name,
+                $fieldDescription->getType(),
+                $fieldDescription->getTemplate()
+            ));
         }
 
+        $metadata = false;
+
         if ($this->getContainer()->has('validator.validator_factory')) {
-            $metadata = $this->getContainer()->get('validator.validator_factory')->getMetadataFor($admin->getClass());
-        } else {
+            $factory = $this->getContainer()->get('validator.validator_factory');
+
+            if (method_exists($factory, 'getMetadataFor')) {
+                $metadata = $factory->getMetadataFor($admin->getClass());
+            }
+        }
+
+        // NEXT_MAJOR: remove method check in next major release
+        if (!$metadata) {
             $metadata = $this->getContainer()->get('validator')->getMetadataFor($admin->getClass());
         }
 
@@ -106,7 +128,11 @@ class ExplainAdminCommand extends ContainerAwareCommand
                 $output->writeln(sprintf('  - %s', $name));
 
                 foreach ($property->getConstraints() as $constraint) {
-                    $output->writeln(sprintf('    % -70s %s', get_class($constraint), implode('|', $constraint->groups)));
+                    $output->writeln(sprintf(
+                        '    % -70s %s',
+                        get_class($constraint),
+                        implode('|', $constraint->groups)
+                    ));
                 }
             }
         }
@@ -121,7 +147,11 @@ class ExplainAdminCommand extends ContainerAwareCommand
                 $output->writeln(sprintf('  - %s', $name));
 
                 foreach ($property->getConstraints() as $constraint) {
-                    $output->writeln(sprintf('    % -70s %s', get_class($constraint), implode('|', $constraint->groups)));
+                    $output->writeln(sprintf(
+                        '    % -70s %s',
+                        get_class($constraint),
+                        implode('|', $constraint->groups)
+                    ));
                 }
             }
         }

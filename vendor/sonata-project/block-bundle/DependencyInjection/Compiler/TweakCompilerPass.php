@@ -28,15 +28,35 @@ class TweakCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $manager = $container->getDefinition('sonata.block.manager');
+        $registry = $container->getDefinition('sonata.block.menu.registry');
 
         $parameters = $container->getParameter('sonata_block.blocks');
 
-        foreach ($container->findTaggedServiceIds('sonata.block') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('sonata.block') as $id => $tags) {
+            $definition = $container->getDefinition($id);
+
+            $arguments = $definition->getArguments();
+
+            // Replace empty block id with service id
+            if (strlen($arguments[0]) == 0) {
+                $definition->replaceArgument(0, $id);
+            } elseif ($id != $arguments[0]) {
+                // NEXT_MAJOR: Remove deprecation notice
+                @trigger_error(
+                    'Using different service id and block id is deprecated since 3.x and will be removed in 4.0.',
+                    E_USER_DEPRECATED
+                );
+            }
+
             $manager->addMethodCall('add', array($id, $id, isset($parameters[$id]) ? $parameters[$id]['contexts'] : array()));
         }
 
+        foreach ($container->findTaggedServiceIds('sonata.block.menu') as $id => $attributes) {
+            $registry->addMethodCall('add', array(new Reference($id)));
+        }
+
         $services = array();
-        foreach ($container->findTaggedServiceIds('sonata.block.loader') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('sonata.block.loader') as $id => $tags) {
             $services[] = new Reference($id);
         }
 

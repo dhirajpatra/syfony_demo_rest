@@ -14,6 +14,7 @@ namespace Symfony\Component\Ldap\Tests;
 use Symfony\Component\Ldap\Adapter\ExtLdap\Adapter;
 use Symfony\Component\Ldap\Adapter\ExtLdap\Collection;
 use Symfony\Component\Ldap\Entry;
+use Symfony\Component\Ldap\Exception\NotBoundException;
 use Symfony\Component\Ldap\LdapInterface;
 
 /**
@@ -46,5 +47,34 @@ class AdapterTest extends LdapTestCase
         $this->assertInstanceOf(Entry::class, $entry);
         $this->assertEquals(array('Fabien Potencier'), $entry->getAttribute('cn'));
         $this->assertEquals(array('fabpot@symfony.com', 'fabien@potencier.com'), $entry->getAttribute('mail'));
+    }
+
+    /**
+     * @group functional
+     */
+    public function testLdapQueryIterator()
+    {
+        $ldap = new Adapter($this->getLdapConfig());
+
+        $ldap->getConnection()->bind('cn=admin,dc=symfony,dc=com', 'symfony');
+        $query = $ldap->createQuery('dc=symfony,dc=com', '(&(objectclass=person)(ou=Maintainers))', array());
+        $result = $query->execute();
+        $iterator = $result->getIterator();
+        $iterator->rewind();
+        $entry = $iterator->current();
+        $this->assertInstanceOf(Entry::class, $entry);
+        $this->assertEquals(array('Fabien Potencier'), $entry->getAttribute('cn'));
+        $this->assertEquals(array('fabpot@symfony.com', 'fabien@potencier.com'), $entry->getAttribute('mail'));
+    }
+
+    /**
+     * @group functional
+     */
+    public function testLdapQueryWithoutBind()
+    {
+        $ldap = new Adapter($this->getLdapConfig());
+        $this->setExpectedException(NotBoundException::class);
+        $query = $ldap->createQuery('dc=symfony,dc=com', '(&(objectclass=person)(ou=Maintainers))', array());
+        $query->execute();
     }
 }

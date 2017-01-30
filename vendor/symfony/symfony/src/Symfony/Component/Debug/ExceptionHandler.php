@@ -49,7 +49,7 @@ class ExceptionHandler
      * @param string|null $charset        The charset used by exception messages
      * @param string|null $fileLinkFormat The IDE link template
      *
-     * @return ExceptionHandler The registered exception handler
+     * @return static
      */
     public static function register($debug = true, $charset = null, $fileLinkFormat = null)
     {
@@ -84,7 +84,7 @@ class ExceptionHandler
      *
      * @param string $format The format for links to source files
      *
-     * @return string The previous file link format.
+     * @return string The previous file link format
      */
     public function setFileLinkFormat($format)
     {
@@ -299,6 +299,7 @@ EOF;
                 border-bottom:1px solid #ccc;
                 border-right:1px solid #ccc;
                 border-left:1px solid #ccc;
+                word-wrap: break-word;
             }
             .sf-reset .block_exception { background-color:#ddd; color: #333; padding:20px;
                 -webkit-border-top-left-radius: 16px;

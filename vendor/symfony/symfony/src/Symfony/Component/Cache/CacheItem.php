@@ -99,9 +99,9 @@ final class CacheItem implements CacheItemInterface
     /**
      * Validates a cache key according to PSR-6.
      *
-     * @param string $key The key to validate.
+     * @param string $key The key to validate
      *
-     * @throws InvalidArgumentException When $key is not valid.
+     * @throws InvalidArgumentException When $key is not valid
      */
     public static function validateKey($key)
     {
@@ -111,7 +111,7 @@ final class CacheItem implements CacheItemInterface
         if (!isset($key[0])) {
             throw new InvalidArgumentException('Cache key length must be greater than zero');
         }
-        if (isset($key[strcspn($key, '{}()/\@:')])) {
+        if (false !== strpbrk($key, '{}()/\@:')) {
             throw new InvalidArgumentException(sprintf('Cache key "%s" contains reserved characters {}()/\@:', $key));
         }
     }

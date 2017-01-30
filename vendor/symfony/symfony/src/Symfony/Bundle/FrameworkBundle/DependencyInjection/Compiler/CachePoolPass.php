@@ -30,7 +30,7 @@ class CachePoolPass implements CompilerPassInterface
     {
         $namespaceSuffix = '';
 
-        foreach (array('name', 'root_dir', 'environment', 'debug') as $key) {
+        foreach (array('name', 'root_dir', 'environment') as $key) {
             if ($container->hasParameter('kernel.'.$key)) {
                 $namespaceSuffix .= '.'.$container->getParameter('kernel.'.$key);
             }
@@ -84,7 +84,7 @@ class CachePoolPass implements CompilerPassInterface
 
     private function getNamespace($namespaceSuffix, $id)
     {
-        return substr(str_replace('/', '-', base64_encode(md5($id.$namespaceSuffix, true))), 0, 10);
+        return substr(str_replace('/', '-', base64_encode(hash('sha256', $id.$namespaceSuffix, true))), 0, 10);
     }
 
     /**

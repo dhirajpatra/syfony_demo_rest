@@ -329,19 +329,18 @@ If you don't need the advanced filters, or all your ``operator_type`` are hidden
 Default filters
 ^^^^^^^^^^^^^^^
 
-Default filters can be added to the datagrid values by overriding the ``$datagridValues`` property which is also used for default sorting.
+Default filters can be added to the datagrid values by using the ``configureDefaultFilterValues`` method.
 A filter has a ``value`` and an optional ``type``. If no ``type`` is given the default type ``is equal`` is used.
 
 .. code-block:: php
 
-    protected $datagridValues = array(
-        '_page' => 1,
-        '_sort_order' => 'ASC',
-        '_sort_by' => 'id',
-        'foo' => array(
-            'value' => 'bar'
-        )
-    );
+    public function configureDefaultFilterValues(array &$filterValues)
+    {
+        $filterValues['foo'] = array(
+            'type'  => ChoiceFilter::TYPE_CONTAINS,
+            'value' => 'bar',
+        );
+    }
 
 Available types are represented through classes which can be found here:
 https://github.com/sonata-project/SonataCoreBundle/tree/master/Form/Type
@@ -460,7 +459,7 @@ If you have the **SonataDoctrineORMAdminBundle** installed you can use the ``doc
         protected function configureDatagridFilters(DatagridMapper $datagridMapper)
         {
             $datagridMapper
-                ->add('full_text', 'doctrine_orm_callback', array(
+                ->add('full_text', CallbackFilter::class, array(
                     'callback' => array($this, 'getFullTextFilter'),
                     'field_type' => 'text'
                 ))
@@ -526,6 +525,7 @@ You can :
 
 - `header_style`: Customize the style of header (width, color, background, align...)
 - `header_class`: Customize the class of the header
+- `collapse`: Allow to collapse long text fields with a "read more" link
 - `row_align`:    Customize the alignment of the rendered inner cells
 
 .. code-block:: php
@@ -542,6 +542,10 @@ You can :
             ->add('name', 'text', array(
                 'header_style' => 'width: 35%'
             )
+            ->add('description', 'text', array(
+                'header_style' => 'width: 35%',
+                'collapse' => true
+            )
             ->add('actions', null, array(
                 'header_class' => 'customActions',
                 'row_align' => 'right'
@@ -550,6 +554,23 @@ You can :
             // ...
         ;
     }
+
+If you want to customise the `collapse` option, you can also give an array to override the default parameters.
+
+.. code-block:: php
+
+            // ...
+            ->add('description', 'text', array(
+                'header_style' => 'width: 35%',
+                'collapse' => array(
+                    'height' => 40, // height in px
+                    'read_more' => 'I want to see the full description', // content of the "read more" link
+                    'read_less' => 'This text is too long, reduce the size' // content of the "read less" link
+                )
+            )
+            // ...
+
+
 
 .. _`issues on GitHub`: https://github.com/sonata-project/SonataAdminBundle/issues/1519
 

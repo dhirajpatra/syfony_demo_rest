@@ -17,9 +17,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class SetupAclCommand.
- *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class SetupAclCommand extends ContainerAwareCommand
 {
@@ -50,7 +48,10 @@ class SetupAclCommand extends ContainerAwareCommand
 
             $manipulator = $this->getContainer()->get('sonata.admin.manipulator.acl.admin');
             if (!$manipulator instanceof AdminAclManipulatorInterface) {
-                $output->writeln(sprintf('The interface "AdminAclManipulatorInterface" is not implemented for %s: <info>ignoring</info>', get_class($manipulator)));
+                $output->writeln(sprintf(
+                    'The interface "AdminAclManipulatorInterface" is not implemented for %s: <info>ignoring</info>',
+                    get_class($manipulator)
+                ));
                 continue;
             }
             $manipulator->configureAcls($output, $admin);

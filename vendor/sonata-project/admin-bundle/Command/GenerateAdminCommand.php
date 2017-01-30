@@ -30,10 +30,8 @@ use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
- * Class GenerateAdminCommand.
- *
- * @author  Marek Stipek <mario.dweller@seznam.cz>
- * @author  Simon Cosandey <simon.cosandey@simseo.ch>
+ * @author Marek Stipek <mario.dweller@seznam.cz>
+ * @author Simon Cosandey <simon.cosandey@simseo.ch>
  */
 class GenerateAdminCommand extends ContainerAwareCommand
 {
@@ -290,8 +288,8 @@ class GenerateAdminCommand extends ContainerAwareCommand
     {
         $questionHelper = $this->getQuestionHelper();
 
+        // NEXT_MAJOR: Remove this BC code for SensioGeneratorBundle 2.3/2.4 after dropping support for Symfony 2.3
         if ($questionHelper instanceof DialogHelper) {
-            // @todo remove this BC code for SensioGeneratorBundle 2.3/2.4 after dropping  support for Symfony 2.3
             return $questionHelper->askAndValidate($output, $questionHelper->getQuestion($questionText, $default), $validator, false, $default);
         }
 
@@ -315,9 +313,9 @@ class GenerateAdminCommand extends ContainerAwareCommand
     {
         $questionHelper = $this->getQuestionHelper();
 
+        // NEXT_MAJOR: Remove this BC code for SensioGeneratorBundle 2.3/2.4 after dropping support for Symfony 2.3
         if ($questionHelper instanceof DialogHelper) {
-            // @todo remove this BC code for SensioGeneratorBundle 2.3/2.4 after dropping  support for Symfony 2.3
-             $question = $questionHelper->getQuestion($questionText, $default, $separator);
+            $question = $questionHelper->getQuestion($questionText, $default, $separator);
 
             return $questionHelper->askConfirmation($output, $question, ($default === 'no' ? false : true));
         }
@@ -404,8 +402,8 @@ class GenerateAdminCommand extends ContainerAwareCommand
      */
     private function getKernel()
     {
-        $application = $this->getApplication();
         /* @var $application Application */
+        $application = $this->getApplication();
 
         return $application->getKernel();
     }
@@ -415,8 +413,8 @@ class GenerateAdminCommand extends ContainerAwareCommand
      */
     private function getQuestionHelper()
     {
+        // NEXT_MAJOR: Remove this BC code for SensioGeneratorBundle 2.3/2.4 after dropping support for Symfony 2.3
         if (class_exists('Sensio\Bundle\GeneratorBundle\Command\Helper\DialogHelper')) {
-            // @todo remove this BC code for SensioGeneratorBundle 2.3/2.4 after dropping  support for Symfony 2.3
             $questionHelper = $this->getHelper('dialog');
 
             if (!$questionHelper instanceof DialogHelper) {

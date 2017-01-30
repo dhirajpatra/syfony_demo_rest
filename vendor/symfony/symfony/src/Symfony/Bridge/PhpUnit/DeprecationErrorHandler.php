@@ -33,7 +33,7 @@ class DeprecationErrorHandler
      * - use a number to define the upper bound of allowed deprecations,
      *   making the test suite fail whenever more notices are trigerred.
      *
-     * @param int|string|false $mode The reporting mode. Defaults to not allowing any deprecations.
+     * @param int|string|false $mode The reporting mode, defaults to not allowing any deprecations
      */
     public static function register($mode = 0)
     {
@@ -68,7 +68,8 @@ class DeprecationErrorHandler
             'other' => array(),
         );
         $deprecationHandler = function ($type, $msg, $file, $line, $context) use (&$deprecations, $getMode) {
-            if (E_USER_DEPRECATED !== $type || DeprecationErrorHandler::MODE_DISABLED === $mode = $getMode()) {
+            $mode = $getMode();
+            if (E_USER_DEPRECATED !== $type || DeprecationErrorHandler::MODE_DISABLED === $mode) {
                 return \PHPUnit_Util_ErrorHandler::handleError($type, $msg, $file, $line, $context);
             }
 
@@ -140,7 +141,7 @@ class DeprecationErrorHandler
                     return "\x1B[{$color}m{$str}\x1B[0m";
                 };
             } else {
-                $colorize = function ($str) {return $str;};
+                $colorize = function ($str) { return $str; };
             }
             register_shutdown_function(function () use ($getMode, &$deprecations, $deprecationHandler, $colorize) {
                 $mode = $getMode();
@@ -151,7 +152,7 @@ class DeprecationErrorHandler
                 restore_error_handler();
 
                 if (DeprecationErrorHandler::MODE_WEAK === $mode) {
-                    $colorize = function ($str) {return $str;};
+                    $colorize = function ($str) { return $str; };
                 }
                 if ($currErrorHandler !== $deprecationHandler) {
                     echo "\n", $colorize('THE ERROR HANDLER HAS CHANGED!', true), "\n";
@@ -195,7 +196,7 @@ class DeprecationErrorHandler
     {
         if ('\\' === DIRECTORY_SEPARATOR) {
             return
-                0 >= version_compare('10.0.10586', PHP_WINDOWS_VERSION_MAJOR.'.'.PHP_WINDOWS_VERSION_MINOR.'.'.PHP_WINDOWS_VERSION_BUILD)
+                '10.0.10586' === PHP_WINDOWS_VERSION_MAJOR.'.'.PHP_WINDOWS_VERSION_MINOR.'.'.PHP_WINDOWS_VERSION_BUILD
                 || false !== getenv('ANSICON')
                 || 'ON' === getenv('ConEmuANSI')
                 || 'xterm' === getenv('TERM');

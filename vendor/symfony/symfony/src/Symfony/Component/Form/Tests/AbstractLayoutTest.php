@@ -28,7 +28,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
 
         \Locale::setDefault('en');
 
-        $this->csrfTokenManager = $this->getMock('Symfony\Component\Security\Csrf\CsrfTokenManagerInterface');
+        $this->csrfTokenManager = $this->getMockBuilder('Symfony\Component\Security\Csrf\CsrfTokenManagerInterface')->getMock();
 
         parent::setUp();
     }
@@ -47,7 +47,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
         parent::tearDown();
     }
 
-    protected function assertXpathNodeValue(\DomElement $element, $expression, $nodeValue)
+    protected function assertXpathNodeValue(\DOMElement $element, $expression, $nodeValue)
     {
         $xpath = new \DOMXPath($element->ownerDocument);
         $nodeList = $xpath->evaluate($expression);
@@ -620,8 +620,8 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
     [@class="bar&baz"]
     [not(@required)]
     [
-        ./option[@value="&a"][@selected="selected"][.="[trans]Choice&A[/trans]"]
-        /following-sibling::option[@value="&b"][not(@class)][not(@selected)][.="[trans]Choice&B[/trans]"]
+        ./option[@value="&a"][@selected="selected"][.="[trans]Choice&A[/trans]"][not(@id)][not(@name)]
+        /following-sibling::option[@value="&b"][not(@class)][not(@selected)][.="[trans]Choice&B[/trans]"][not(@id)][not(@name)]
     ]
     [count(./option)=2]
 '
@@ -1233,7 +1233,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
 
     public function testDateTime()
     {
-        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateTimeType', '2011-02-03 04:05:06', array(
+        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateTimeType', date('Y').'-02-03 04:05:06', array(
             'input' => 'string',
             'with_seconds' => false,
         ));
@@ -1252,7 +1252,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
                     [./option[@value="3"][@selected="selected"]]
                 /following-sibling::select
                     [@id="name_date_year"]
-                    [./option[@value="2011"][@selected="selected"]]
+                    [./option[@value="'.date('Y').'"][@selected="selected"]]
             ]
         /following-sibling::div
             [@id="name_time"]
@@ -1312,7 +1312,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
 
     public function testDateTimeWithHourAndMinute()
     {
-        $data = array('year' => '2011', 'month' => '2', 'day' => '3', 'hour' => '4', 'minute' => '5');
+        $data = array('year' => date('Y'), 'month' => '2', 'day' => '3', 'hour' => '4', 'minute' => '5');
 
         $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateTimeType', $data, array(
             'input' => 'array',
@@ -1333,7 +1333,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
                     [./option[@value="3"][@selected="selected"]]
                 /following-sibling::select
                     [@id="name_date_year"]
-                    [./option[@value="2011"][@selected="selected"]]
+                    [./option[@value="'.date('Y').'"][@selected="selected"]]
             ]
         /following-sibling::div
             [@id="name_time"]
@@ -1353,7 +1353,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
 
     public function testDateTimeWithSeconds()
     {
-        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateTimeType', '2011-02-03 04:05:06', array(
+        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateTimeType', date('Y').'-02-03 04:05:06', array(
             'input' => 'string',
             'with_seconds' => true,
         ));
@@ -1372,7 +1372,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
                     [./option[@value="3"][@selected="selected"]]
                 /following-sibling::select
                     [@id="name_date_year"]
-                    [./option[@value="2011"][@selected="selected"]]
+                    [./option[@value="'.date('Y').'"][@selected="selected"]]
             ]
         /following-sibling::div
             [@id="name_time"]
@@ -1459,7 +1459,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
 
     public function testDateChoice()
     {
-        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateType', '2011-02-03', array(
+        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\DateType', date('Y').'-02-03', array(
             'input' => 'string',
             'widget' => 'choice',
         ));
@@ -1475,7 +1475,7 @@ abstract class AbstractLayoutTest extends \Symfony\Component\Form\Test\FormInteg
             [./option[@value="3"][@selected="selected"]]
         /following-sibling::select
             [@id="name_year"]
-            [./option[@value="2011"][@selected="selected"]]
+            [./option[@value="'.date('Y').'"][@selected="selected"]]
     ]
     [count(./select)=3]
 '

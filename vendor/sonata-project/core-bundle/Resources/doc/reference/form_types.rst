@@ -191,10 +191,6 @@ If you want to map to a boolean value, just set the option ``transform`` to true
 sonata_type_translatable_choice
 -------------------------------
 
-.. warning::
-
-    ``sonata_type_translatable_choice`` is deprecated and will be removed in 3.0. Use form type ``choice`` with ``translation_domain`` option instead!
-
 The translatable type is a specialized ``ChoiceType`` where the choices values are translated with the Symfony Translator component.
 
 The type has one extra parameter:
@@ -391,9 +387,8 @@ In order to use them, you'll need to perform a bit of setup:
         # app/config/config.yml
 
         twig:
-            form:
-                resources:
-                    - 'SonataCoreBundle:Form:datepicker.html.twig'
+            form_themes:
+                - 'SonataCoreBundle:Form:datepicker.html.twig'
 
 In your layout, you'll need to add the assets dependencies (feel free to adapt this to your needs, for instance to use with assetic):
 
@@ -447,6 +442,9 @@ Many of the `standard date picker options`_ are available by adding options with
                         'dp_side_by_side'       => true,
                         'dp_use_current'        => false,
                         'dp_use_seconds'        => false,
+                        'dp_collapse'           => true,
+                        'dp_calendar_weeks'     => false,
+                        'dp_view_mode'          => 'days',
                 ))
 
                 // or sonata_type_date_picker if you don't need the time

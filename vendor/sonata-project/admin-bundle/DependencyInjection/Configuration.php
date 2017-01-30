@@ -20,7 +20,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  * This information is solely responsible for how the different configuration
  * sections are normalized, and merged.
  *
- * @author  Michael Williams <mtotheikle@gmail.com>
+ * @author Michael Williams <mtotheikle@gmail.com>
  */
 class Configuration implements ConfigurationInterface
 {
@@ -73,6 +73,15 @@ class Configuration implements ConfigurationInterface
 
                 ->scalarNode('title')->defaultValue('Sonata Admin')->cannotBeEmpty()->end()
                 ->scalarNode('title_logo')->defaultValue('bundles/sonataadmin/logo_title.png')->cannotBeEmpty()->end()
+                ->arrayNode('breadcrumbs')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('child_admin_route')
+                            ->defaultValue('edit')
+                            ->info('Change the default route used to generate the link to the parent object, when in a child admin')
+                        ->end()
+                    ->end()
+                ->end()
                 ->arrayNode('options')
                     ->addDefaultsIfNotSet()
                     ->children()
@@ -162,6 +171,12 @@ class Configuration implements ConfigurationInterface
                                                 ->scalarNode('admin')->end()
                                                 ->scalarNode('label')->end()
                                                 ->scalarNode('route')->end()
+                                                ->arrayNode('roles')
+                                                    ->prototype('scalar')
+                                                        ->info('Roles which will see the route in the menu')
+                                                        ->defaultValue(array())
+                                                    ->end()
+                                                ->end()
                                                 ->arrayNode('route_params')
                                                     ->prototype('scalar')->end()
                                                 ->end()
@@ -279,6 +294,13 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('pager_results')->defaultValue('SonataAdminBundle:Pager:results.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('tab_menu_template')->defaultValue('SonataAdminBundle:Core:tab_menu_template.html.twig')->cannotBeEmpty()->end()
                         ->scalarNode('knp_menu_template')->defaultValue('SonataAdminBundle:Menu:sonata_menu.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('action_create')->defaultValue('SonataAdminBundle:CRUD:dashboard__action_create.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('button_acl')->defaultValue('SonataAdminBundle:Button:acl_button.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('button_create')->defaultValue('SonataAdminBundle:Button:create_button.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('button_edit')->defaultValue('SonataAdminBundle:Button:edit_button.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('button_history')->defaultValue('SonataAdminBundle:Button:history_button.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('button_list')->defaultValue('SonataAdminBundle:Button:list_button.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('button_show')->defaultValue('SonataAdminBundle:Button:show_button.html.twig')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
 
@@ -335,6 +357,7 @@ class Configuration implements ConfigurationInterface
                                 'bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js',
                                 'bundles/sonataadmin/vendor/waypoints/lib/jquery.waypoints.min.js',
                                 'bundles/sonataadmin/vendor/waypoints/lib/shortcuts/sticky.min.js',
+                                'bundles/sonataadmin/vendor/readmore-js/readmore.min.js',
 
                                 'bundles/sonataadmin/Admin.js',
                                 'bundles/sonataadmin/treeview.js',

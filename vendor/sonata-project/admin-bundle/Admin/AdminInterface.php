@@ -34,7 +34,7 @@ use Symfony\Component\Validator\ValidatorInterface as LegacyValidatorInterface;
 /**
  * Interface AdminInterface.
  *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 interface AdminInterface
 {
@@ -216,13 +216,13 @@ interface AdminInterface
     /**
      * @return Request
      *
-     * @throws \RuntimeException if no request is set.
+     * @throws \RuntimeException if no request is set
      */
     public function getRequest();
 
     /**
      * @return bool true if a request object is linked to this Admin, false
-     *              otherwise.
+     *              otherwise
      */
     public function hasRequest();
 
@@ -268,12 +268,16 @@ interface AdminInterface
     /**
      * translate a message id.
      *
+     * NEXT_MAJOR: remove this method
+     *
      * @param string $id
      * @param array  $parameters
      * @param null   $domain
      * @param null   $locale
      *
      * @return string the translated string
+     *
+     * @deprecated since 3.9, to be removed in 4.0
      */
     public function trans($id, array $parameters = array(), $domain = null, $locale = null);
 
@@ -399,7 +403,7 @@ interface AdminInterface
      *
      * @param string $name
      *
-     * @return array|null
+     * @return FieldDescriptionInterface|null
      */
     public function getFilterFieldDescription($name);
 
@@ -731,6 +735,8 @@ interface AdminInterface
     public function hasSubject();
 
     /**
+     * NEXT_MAJOR: remove this method.
+     *
      * @param ErrorElement $errorElement
      * @param mixed        $object
      *
@@ -972,7 +978,7 @@ interface AdminInterface
     public function getTranslationLabel($label, $context = '', $type = '');
 
     /**
-     * DEPRECATED: Use buildTabMenu instead.
+     * NEXT_MAJOR: remove this method.
      *
      * @param string         $action
      * @param AdminInterface $childAdmin
@@ -1070,4 +1076,22 @@ interface AdminInterface
 //     * @param bool $isShown
 //     */
 //    public function showMosaicButton($isShown);
+
+    /*
+     * Checks if a filter type is set to a default value
+     *
+     * @param string $name
+     *
+     * @return bool
+     */
+//    NEXT_MAJOR: uncomment this method in 4.0
+    // public function isDefaultFilter($name);
+
+    /*
+     * Returns a list of default filters.
+     *
+     * @return array
+     */
+//    NEXT_MAJOR: uncomment this method in 4.0
+    // public function getDefaultFilterValues();
 }

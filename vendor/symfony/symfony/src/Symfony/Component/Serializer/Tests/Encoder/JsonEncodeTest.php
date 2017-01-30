@@ -50,10 +50,10 @@ class JsonEncodeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @requires function json_last_error_msg
-     * @expectedException Symfony\Component\Serializer\Exception\UnexpectedValueException
+     * @expectedException \Symfony\Component\Serializer\Exception\UnexpectedValueException
      */
     public function testEncodeWithError()
     {
-        $this->encode->encode("\xB1\x31",  JsonEncoder::FORMAT);
+        $this->encode->encode("\xB1\x31", JsonEncoder::FORMAT);
     }
 }

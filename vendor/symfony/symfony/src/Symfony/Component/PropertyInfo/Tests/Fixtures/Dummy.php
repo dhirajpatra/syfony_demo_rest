@@ -19,14 +19,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Dummy extends ParentDummy
 {
     /**
-     * @var string This is bar.
+     * @var string This is bar
      */
     private $bar;
 
     /**
      * Should be used.
      *
-     * @var int Should be ignored.
+     * @var int Should be ignored
      */
     protected $baz;
 
@@ -50,6 +50,21 @@ class Dummy extends ParentDummy
      * @var ParentDummy
      */
     public $B;
+
+    public static function getStatic()
+    {
+    }
+
+    /**
+     * @return string
+     */
+    public static function staticGetter()
+    {
+    }
+
+    public static function staticSetter(\DateTime $d)
+    {
+    }
 
     /**
      * A.

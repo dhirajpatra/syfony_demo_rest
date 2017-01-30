@@ -17,13 +17,14 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * Add all dependencies to the Admin class, this avoid to write too many lines
  * in the configuration files.
  *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class AddDependencyCallsCompilerPass implements CompilerPassInterface
 {
@@ -50,21 +51,20 @@ class AddDependencyCallsCompilerPass implements CompilerPassInterface
         foreach ($container->findTaggedServiceIds('sonata.admin') as $id => $tags) {
             foreach ($tags as $attributes) {
                 $definition = $container->getDefinition($id);
+                $parentDefinition = $definition instanceof DefinitionDecorator ?
+                    $container->getDefinition($definition->getParent()) :
+                    null;
 
-                $arguments = $definition->getArguments();
-
-                if (strlen($arguments[0]) == 0) {
-                    $definition->replaceArgument(0, $id);
-                }
-
-                if (strlen($arguments[2]) == 0) {
-                    $definition->replaceArgument(2, 'SonataAdminBundle:CRUD');
-                }
-
+                $this->replaceDefaultArguments(array(
+                    0 => $id,
+                    2 => 'SonataAdminBundle:CRUD',
+                ), $definition, $parentDefinition);
                 $this->applyConfigurationFromAttribute($definition, $attributes);
                 $this->applyDefaults($container, $id, $attributes);
 
-                $arguments = $definition->getArguments();
+                $arguments = $parentDefinition ?
+                    array_merge($parentDefinition->getArguments(), $definition->getArguments()) :
+                    $definition->getArguments();
 
                 $admins[] = $id;
 
@@ -74,7 +74,7 @@ class AddDependencyCallsCompilerPass implements CompilerPassInterface
 
                 $classes[$arguments[1]][] = $id;
 
-                $showInDashboard = (bool) (isset($attributes['show_in_dashboard']) ?  $parameterBag->resolveValue($attributes['show_in_dashboard']) : true);
+                $showInDashboard = (bool) (isset($attributes['show_in_dashboard']) ? $parameterBag->resolveValue($attributes['show_in_dashboard']) : true);
                 if (!$showInDashboard) {
                     continue;
                 }
@@ -105,9 +105,8 @@ class AddDependencyCallsCompilerPass implements CompilerPassInterface
                 if (isset($groupDefaults[$resolvedGroupName]['on_top']) && $groupDefaults[$resolvedGroupName]['on_top']
                     || $onTop && (count($groupDefaults[$resolvedGroupName]['items']) > 1)) {
                     throw new \RuntimeException('You can\'t use "on_top" option with multiple same name groups.');
-                } else {
-                    $groupDefaults[$resolvedGroupName]['on_top'] = $onTop;
                 }
+                $groupDefaults[$resolvedGroupName]['on_top'] = $onTop;
             }
         }
 
@@ -153,10 +152,9 @@ class AddDependencyCallsCompilerPass implements CompilerPassInterface
                 if (isset($groups[$resolvedGroupName]['on_top']) && !empty($group['on_top']) && $group['on_top']
                     && (count($groups[$resolvedGroupName]['items']) > 1)) {
                     throw new \RuntimeException('You can\'t use "on_top" option with multiple same name groups.');
-                } else {
-                    if (empty($group['on_top'])) {
-                        $groups[$resolvedGroupName]['on_top'] = $groupDefaults[$resolvedGroupName]['on_top'];
-                    }
+                }
+                if (empty($group['on_top'])) {
+                    $groups[$resolvedGroupName]['on_top'] = $groupDefaults[$resolvedGroupName]['on_top'];
                 }
             }
         } elseif ($container->getParameter('sonata.admin.configuration.sort_admins')) {
@@ -277,7 +275,12 @@ class AddDependencyCallsCompilerPass implements CompilerPassInterface
             $method = 'set'.Inflector::classify($attr);
 
             if (isset($overwriteAdminConfiguration[$attr]) || !$definition->hasMethodCall($method)) {
-                $definition->addMethodCall($method, array(new Reference(isset($overwriteAdminConfiguration[$attr]) ? $overwriteAdminConfiguration[$attr] : $addServiceId)));
+                $args = array(new Reference(isset($overwriteAdminConfiguration[$attr]) ? $overwriteAdminConfiguration[$attr] : $addServiceId));
+                if ('translator' === $attr) {
+                    $args[] = false;
+                }
+
+                $definition->addMethodCall($method, $args);
             }
         }
 
@@ -404,5 +407,28 @@ class AddDependencyCallsCompilerPass implements CompilerPassInterface
         ), $definedTemplates, $overwrittenTemplates['view']);
 
         $definition->addMethodCall('setTemplates', array($definedTemplates));
+    }
+
+    /**
+     * Replace the empty arguments required by the Admin service definition.
+     *
+     * @param array           $defaultArguments
+     * @param Definition      $definition
+     * @param Definition|null $parentDefinition
+     */
+    private function replaceDefaultArguments(array $defaultArguments, Definition $definition, Definition $parentDefinition = null)
+    {
+        $arguments = $definition->getArguments();
+        $parentArguments = $parentDefinition ? $parentDefinition->getArguments() : array();
+
+        foreach ($defaultArguments as $index => $value) {
+            $declaredInParent = $parentDefinition && array_key_exists($index, $parentArguments);
+
+            if (strlen($declaredInParent ? $parentArguments[$index] : $arguments[$index]) == 0) {
+                $arguments[$declaredInParent ? sprintf('index_%s', $index) : $index] = $value;
+            }
+        }
+
+        $definition->setArguments($arguments);
     }
 }

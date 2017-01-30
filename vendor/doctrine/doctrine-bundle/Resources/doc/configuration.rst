@@ -722,10 +722,36 @@ the ORM resolves to:
 There are lots of other configuration options that you can use to overwrite
 certain classes, but those are for very advanced use-cases only.
 
+Oracle DB
+=======
+
+If the environment format configured in oracle does not meet doctrine requirements,
+you need to use the OracleSessionInit listener so that doctrine is aware of the format used by Oracle DB.
+
+You can do so easily with
+
+.. code-block:: yaml
+
+    services:
+        oracle.listener:
+            class: Doctrine\DBAL\Event\Listeners\OracleSessionInit
+            tags:
+                - { name: doctrine.event_listener, event: postConnect }
+
+The environment variables that doctrine is going to change in the Oracle DB session are:
+
+.. code-block:: yaml
+
+    NLS_TIME_FORMAT="HH24:MI:SS"
+    NLS_DATE_FORMAT="YYYY-MM-DD HH24:MI:SS"
+    NLS_TIMESTAMP_FORMAT="YYYY-MM-DD HH24:MI:SS"
+    NLS_TIMESTAMP_TZ_FORMAT="YYYY-MM-DD HH24:MI:SS TZH:TZM"
+
+
 Caching Drivers
 ~~~~~~~~~~~~~~~
 
-For the caching drivers you can specify the values ``array``, ``apc``, ``memcache``,
+For the caching drivers you can specify the values ``array``, ``apc``, ``apcu``, ``memcache``,
 ``memcached`` or ``xcache``.
 
 The following example shows an overview of the caching configurations:
@@ -735,7 +761,7 @@ The following example shows an overview of the caching configurations:
     doctrine:
         orm:
             auto_mapping: true
-            metadata_cache_driver: apc
+            metadata_cache_driver: apcu
             query_cache_driver: xcache
             result_cache_driver:
                 type: memcache
@@ -857,8 +883,8 @@ can configure. The following block shows all possible configuration keys:
                 driver_class:             MyNamespace\MyDriverImpl
                 options:
                     foo: bar
-                path:                     %kernel.data_dir%/data.sqlite # SQLite specific
-                memory:                   true                          # SQLite specific
+                path:                     "%kernel.data_dir%/data.sqlite" # SQLite specific
+                memory:                   true                            # SQLite specific
                 unix_socket:              /tmp/mysql.sock
                 persistent:               true
                 MultipleActiveResultSets: true                # pdo_sqlsrv driver specific
@@ -872,7 +898,7 @@ can configure. The following block shows all possible configuration keys:
                 sslrootcert:              postgresql-ca.pem   # PostgreSQL specific (LIBPQ-CONNECT-SSLROOTCERT)
                 wrapper_class:            MyDoctrineDbalConnectionWrapper
                 charset:                  UTF8
-                logging:                  %kernel.debug%
+                logging:                  "%kernel.debug%"
                 platform_service:         MyOwnDatabasePlatformService
                 auto_commit:              false
                 schema_filter:            ^sf2_

@@ -17,10 +17,9 @@ use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * Class FormMapper
  * This class is use to simulate the Form API.
  *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class FormMapper extends BaseGroupedMapper
 {
@@ -88,6 +87,11 @@ class FormMapper extends BaseGroupedMapper
         $label = $fieldName;
 
         $group = $this->addFieldToCurrentGroup($label);
+
+        // Try to autodetect type
+        if ($name instanceof FormBuilderInterface && null === $type) {
+            $fieldDescriptionOptions['type'] = get_class($name->getType()->getInnerType());
+        }
 
         if (!isset($fieldDescriptionOptions['type']) && is_string($type)) {
             $fieldDescriptionOptions['type'] = $type;

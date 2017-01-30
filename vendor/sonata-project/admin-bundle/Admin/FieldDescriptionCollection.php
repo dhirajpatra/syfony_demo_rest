@@ -12,9 +12,7 @@
 namespace Sonata\AdminBundle\Admin;
 
 /**
- * Class FieldDescriptionCollection.
- *
- * @author  Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ * @author Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
 class FieldDescriptionCollection implements \ArrayAccess, \Countable
 {
@@ -96,7 +94,7 @@ class FieldDescriptionCollection implements \ArrayAccess, \Countable
      */
     public function offsetSet($offset, $value)
     {
-        throw new \RunTimeException('Cannot set value, use add');
+        throw new \RuntimeException('Cannot set value, use add');
     }
 
     /**
