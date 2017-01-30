@@ -22,7 +22,6 @@
       <parameter key="SonataBlockBundle">Sonata\BlockBundle\SonataBlockBundle</parameter>
       <parameter key="SonataAdminBundle">Sonata\AdminBundle\SonataAdminBundle</parameter>
       <parameter key="AcmeTestBundle">Acme\TestBundle\AcmeTestBundle</parameter>
-      <parameter key="VoryxRESTGeneratorBundle">Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle</parameter>
       <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
       <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
       <parameter key="NelmioCorsBundle">Nelmio\CorsBundle\NelmioCorsBundle</parameter>
@@ -787,7 +786,6 @@
       <parameter>sonata.admin.form.filter.type.daterange</parameter>
       <parameter>sonata.admin.form.filter.type.datetime</parameter>
       <parameter>sonata.admin.form.filter.type.datetime_range</parameter>
-      <parameter>voryx.type.voryx_entity</parameter>
     </parameter>
     <parameter key="sonata.core.form.type_extensions" type="collection">
       <parameter>form.type_extension.form.http_foundation</parameter>
@@ -913,9 +911,9 @@
               <argument type="service">
                 <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
                   <tag name="cache.pool"/>
-                  <argument>PNaRxla96e</argument>
+                  <argument>zsZoYFaFZt</argument>
                   <argument></argument>
-                  <argument>KQwLgpvxnit0YEqi7kqMMw</argument>
+                  <argument>PqzTGChmdLTSfkt1i7IIrQ</argument>
                   <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -926,9 +924,9 @@
               <argument type="service">
                 <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
                   <tag name="cache.pool"/>
-                  <argument>8R2JKZoT-5</argument>
+                  <argument>vClpfmP5a2</argument>
                   <argument></argument>
-                  <argument>KQwLgpvxnit0YEqi7kqMMw</argument>
+                  <argument>PqzTGChmdLTSfkt1i7IIrQ</argument>
                   <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1067,140 +1065,17 @@
         <argument key="cache_dir">/var/www/html/symfony_demo/var/cache/dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
-          <argument key="el" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf</argument>
+          <argument key="bg" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.bg.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.bg.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.bg.xliff</argument>
           </argument>
-          <argument key="id" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.id.xlf</argument>
-          </argument>
-          <argument key="pt" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt.xliff</argument>
-          </argument>
-          <argument key="az" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.az.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.az.xlf</argument>
-          </argument>
-          <argument key="lb" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lb.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lb.xliff</argument>
-          </argument>
-          <argument key="da" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf</argument>
-          </argument>
-          <argument key="af" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
-          </argument>
-          <argument key="ja" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ja.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ja.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ja.xliff</argument>
-          </argument>
-          <argument key="th" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.th.xlf</argument>
-          </argument>
-          <argument key="vi" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.vi.xlf</argument>
-          </argument>
-          <argument key="hr" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hr.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.hr.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hr.xliff</argument>
-          </argument>
-          <argument key="ro" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ro.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ro.xliff</argument>
-          </argument>
-          <argument key="sr_Cyrl" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf</argument>
-          </argument>
-          <argument key="tr" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf</argument>
-          </argument>
-          <argument key="mn" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf</argument>
-          </argument>
-          <argument key="et" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf</argument>
-          </argument>
-          <argument key="uk" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.uk.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.uk.xliff</argument>
-          </argument>
-          <argument key="sr_Latn" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf</argument>
-          </argument>
-          <argument key="ru" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ru.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ru.xliff</argument>
-          </argument>
-          <argument key="eu" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.eu.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.eu.xliff</argument>
-          </argument>
-          <argument key="cy" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
-          </argument>
-          <argument key="zh_CN" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.zh_CN.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.zh_CN.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.zh_CN.xliff</argument>
-          </argument>
-          <argument key="pt_BR" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt_BR.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt_BR.xliff</argument>
-          </argument>
-          <argument key="sv" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf</argument>
-          </argument>
-          <argument key="lt" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lt.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lt.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lt.xliff</argument>
+          <argument key="he" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.he.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
             <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf</argument>
@@ -1209,15 +1084,84 @@
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sl.xliff</argument>
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sl.xliff</argument>
           </argument>
+          <argument key="ja" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ja.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ja.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ja.xliff</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.az.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.az.xlf</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.it.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.it.xliff</argument>
+          </argument>
+          <argument key="mn" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf</argument>
+          </argument>
+          <argument key="vi" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.vi.xlf</argument>
+          </argument>
+          <argument key="fi" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fi.xliff</argument>
+          </argument>
           <argument key="zh_TW" type="collection">
             <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf</argument>
           </argument>
-          <argument key="cs" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.cs.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.cs.xliff</argument>
+          <argument key="uk" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.uk.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.uk.xliff</argument>
+          </argument>
+          <argument key="eu" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.eu.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.eu.xliff</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ro.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ro.xliff</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.no.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.no.xliff</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sk.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sk.xliff</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ru.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ru.xliff</argument>
           </argument>
           <argument key="hu" type="collection">
             <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
@@ -1227,60 +1171,36 @@
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.hu.xliff</argument>
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hu.xliff</argument>
           </argument>
-          <argument key="hy" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf</argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf</argument>
           </argument>
-          <argument key="fa" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fa.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fa.xliff</argument>
+          <argument key="en" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.en.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.en.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.en.xliff</argument>
           </argument>
-          <argument key="ar" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ar.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ar.xliff</argument>
+          <argument key="pt" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt.xliff</argument>
           </argument>
-          <argument key="he" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.he.xlf</argument>
+          <argument key="sv" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf</argument>
           </argument>
-          <argument key="sk" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sk.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sk.xliff</argument>
-          </argument>
-          <argument key="es" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.es.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.es.xliff</argument>
-          </argument>
-          <argument key="pl" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pl.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pl.xliff</argument>
-          </argument>
-          <argument key="sq" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
-          </argument>
-          <argument key="de" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.de.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.de.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.de.xliff</argument>
+          <argument key="ca" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ca.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ca.xliff</argument>
           </argument>
           <argument key="nl" type="collection">
             <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
@@ -1289,19 +1209,65 @@
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.nl.xliff</argument>
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.nl.xliff</argument>
           </argument>
-          <argument key="it" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.it.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.it.xliff</argument>
+          <argument key="hr" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hr.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.hr.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hr.xliff</argument>
           </argument>
-          <argument key="ca" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ca.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ca.xliff</argument>
+          <argument key="nn" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf</argument>
+          </argument>
+          <argument key="ar" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ar.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ar.xliff</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pl.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pl.xliff</argument>
+          </argument>
+          <argument key="zh_CN" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.zh_CN.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.zh_CN.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.zh_CN.xliff</argument>
+          </argument>
+          <argument key="sq" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
+          </argument>
+          <argument key="af" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
+          </argument>
+          <argument key="et" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf</argument>
+          </argument>
+          <argument key="pt_BR" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt_BR.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt_BR.xliff</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.th.xlf</argument>
+          </argument>
+          <argument key="cy" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf</argument>
@@ -1311,39 +1277,71 @@
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.fr.xliff</argument>
             <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fr.xliff</argument>
           </argument>
-          <argument key="gl" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf</argument>
+          <argument key="da" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf</argument>
           </argument>
-          <argument key="bg" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.bg.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.bg.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.bg.xliff</argument>
+          <argument key="hy" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf</argument>
           </argument>
-          <argument key="nn" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf</argument>
+          <argument key="tr" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf</argument>
           </argument>
-          <argument key="no" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.no.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.no.xliff</argument>
+          <argument key="es" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.es.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.es.xliff</argument>
           </argument>
-          <argument key="fi" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fi.xliff</argument>
+          <argument key="cs" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.cs.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.cs.xliff</argument>
           </argument>
-          <argument key="en" type="collection">
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.en.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.en.xliff</argument>
-            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.en.xliff</argument>
+          <argument key="lt" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lt.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lt.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lt.xliff</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.de.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.de.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.de.xliff</argument>
+          </argument>
+          <argument key="id" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.id.xlf</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fa.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fa.xliff</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lb.xliff</argument>
+            <argument>/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lb.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>/var/www/html/symfony_demo/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf</argument>
@@ -1544,7 +1542,7 @@
     </service>
     <service id="cache.app" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <tag name="cache.pool"/>
-      <argument>X5u2rGOajG</argument>
+      <argument>wBloKSRprz</argument>
       <argument></argument>
       <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
       <call method="setLogger">
@@ -1553,9 +1551,9 @@
     </service>
     <service id="cache.system" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
-      <argument>k6-446I+Qs</argument>
+      <argument>fhxWp3+J-f</argument>
       <argument></argument>
-      <argument>KQwLgpvxnit0YEqi7kqMMw</argument>
+      <argument>PqzTGChmdLTSfkt1i7IIrQ</argument>
       <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -2350,7 +2348,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5779143f9de943.48647529</argument>
+            <argument>588ec8cb6c3047.25156096</argument>
           </service>
         </argument>
       </argument>
@@ -2484,7 +2482,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5779143f9de943.48647529</argument>
+            <argument>588ec8cb6c3047.25156096</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3949,10 +3947,6 @@
       <argument type="service" id="form.factory"/>
       <argument>Sonata\AdminBundle\Security\Acl\Permission\MaskBuilder</argument>
     </service>
-    <service id="voryx.type.voryx_entity" class="Voryx\RESTGeneratorBundle\Form\Type\VoryxEntityType">
-      <tag name="form.type" alias="voryx_entity"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-    </service>
     <service id="fos_rest.view.exception_wrapper_handler" class="FOS\RestBundle\View\ExceptionWrapperHandler"/>
     <service id="fos_rest.serializer.exception_wrapper_serialize_handler" class="FOS\RestBundle\Serializer\ExceptionWrapperSerializeHandler">
       <tag name="jms_serializer.subscribing_handler"/>
@@ -4820,7 +4814,6 @@
         <argument key="Sonata\AdminBundle\Form\Type\Filter\DateRangeType">sonata.admin.form.filter.type.daterange</argument>
         <argument key="Sonata\AdminBundle\Form\Type\Filter\DateTimeType">sonata.admin.form.filter.type.datetime</argument>
         <argument key="Sonata\AdminBundle\Form\Type\Filter\DateTimeRangeType">sonata.admin.form.filter.type.datetime_range</argument>
-        <argument key="Voryx\RESTGeneratorBundle\Form\Type\VoryxEntityType">voryx.type.voryx_entity</argument>
       </argument>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -4922,20 +4915,37 @@
           <argument>mopa_bootstrap.form.type_extension.horizontal</argument>
           <argument>mopa_bootstrap.form.type_extension.widget_collection</argument>
           <argument>mopa_bootstrap.form.type_extension.tabbed</argument>
+          <argument>form.type_extension.form.http_foundation</argument>
+          <argument>form.type_extension.form.validator</argument>
+          <argument>form.type_extension.csrf</argument>
+          <argument>form.type_extension.form.data_collector</argument>
+          <argument>sonata.admin.form.extension.field</argument>
+          <argument>mopa_bootstrap.form.type_extension.help</argument>
+          <argument>mopa_bootstrap.form.type_extension.legend</argument>
+          <argument>mopa_bootstrap.form.type_extension.error</argument>
+          <argument>mopa_bootstrap.form.type_extension.widget</argument>
+          <argument>mopa_bootstrap.form.type_extension.horizontal</argument>
+          <argument>mopa_bootstrap.form.type_extension.widget_collection</argument>
+          <argument>mopa_bootstrap.form.type_extension.tabbed</argument>
         </argument>
         <argument key="repeated" type="collection">
+          <argument>form.type_extension.repeated.validator</argument>
           <argument>form.type_extension.repeated.validator</argument>
         </argument>
         <argument key="submit" type="collection">
           <argument>form.type_extension.submit.validator</argument>
+          <argument>form.type_extension.submit.validator</argument>
         </argument>
         <argument key="choice" type="collection">
+          <argument>sonata.admin.form.extension.choice</argument>
           <argument>sonata.admin.form.extension.choice</argument>
         </argument>
         <argument key="button" type="collection">
           <argument>mopa_bootstrap.form.type_extension.button</argument>
+          <argument>mopa_bootstrap.form.type_extension.button</argument>
         </argument>
         <argument key="date" type="collection">
+          <argument>mopa_bootstrap.form.type_extension.date</argument>
           <argument>mopa_bootstrap.form.type_extension.date</argument>
         </argument>
       </argument>
@@ -5207,7 +5217,6 @@
                       <argument key="Sonata\BlockBundle">/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/config/serializer</argument>
                       <argument key="Sonata\AdminBundle">/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/config/serializer</argument>
                       <argument key="Acme\TestBundle">/var/www/html/symfony_demo/src/Acme/TestBundle/Resources/config/serializer</argument>
-                      <argument key="Voryx\RESTGeneratorBundle">/var/www/html/symfony_demo/vendor/voryx/restgeneratorbundle/src/Voryx/RESTGeneratorBundle/Resources/config/serializer</argument>
                       <argument key="FOS\RestBundle">/var/www/html/symfony_demo/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer</argument>
                       <argument key="JMS\SerializerBundle">/var/www/html/symfony_demo/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer</argument>
                       <argument key="Nelmio\CorsBundle">/var/www/html/symfony_demo/vendor/nelmio/cors-bundle/Resources/config/serializer</argument>
@@ -5240,7 +5249,6 @@
                       <argument key="Sonata\BlockBundle">/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/config/serializer</argument>
                       <argument key="Sonata\AdminBundle">/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/config/serializer</argument>
                       <argument key="Acme\TestBundle">/var/www/html/symfony_demo/src/Acme/TestBundle/Resources/config/serializer</argument>
-                      <argument key="Voryx\RESTGeneratorBundle">/var/www/html/symfony_demo/vendor/voryx/restgeneratorbundle/src/Voryx/RESTGeneratorBundle/Resources/config/serializer</argument>
                       <argument key="FOS\RestBundle">/var/www/html/symfony_demo/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer</argument>
                       <argument key="JMS\SerializerBundle">/var/www/html/symfony_demo/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer</argument>
                       <argument key="Nelmio\CorsBundle">/var/www/html/symfony_demo/vendor/nelmio/cors-bundle/Resources/config/serializer</argument>
@@ -5273,7 +5281,6 @@
                       <argument key="Sonata\BlockBundle">/var/www/html/symfony_demo/vendor/sonata-project/block-bundle/Resources/config/serializer</argument>
                       <argument key="Sonata\AdminBundle">/var/www/html/symfony_demo/vendor/sonata-project/admin-bundle/Resources/config/serializer</argument>
                       <argument key="Acme\TestBundle">/var/www/html/symfony_demo/src/Acme/TestBundle/Resources/config/serializer</argument>
-                      <argument key="Voryx\RESTGeneratorBundle">/var/www/html/symfony_demo/vendor/voryx/restgeneratorbundle/src/Voryx/RESTGeneratorBundle/Resources/config/serializer</argument>
                       <argument key="FOS\RestBundle">/var/www/html/symfony_demo/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer</argument>
                       <argument key="JMS\SerializerBundle">/var/www/html/symfony_demo/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer</argument>
                       <argument key="Nelmio\CorsBundle">/var/www/html/symfony_demo/vendor/nelmio/cors-bundle/Resources/config/serializer</argument>
