@@ -17,7 +17,7 @@
         "require": {
             "php": ">=5.3.2"
         },
-        "time": "2014-09-09 13:34:57",
+        "time": "2014-09-09T13:34:57+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -76,7 +76,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.*"
         },
-        "time": "2015-11-06 14:35:42",
+        "time": "2015-11-06T14:35:42+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -145,7 +145,7 @@
         "require-dev": {
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2014-01-12 16:20:24",
+        "time": "2014-01-12T16:20:24+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -216,7 +216,7 @@
         "suggest": {
             "symfony/security-acl": "For using this bundle to cache ACLs"
         },
-        "time": "2016-01-26 17:28:51",
+        "time": "2016-01-26T17:28:51+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -291,7 +291,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~2.0"
         },
-        "time": "2015-06-14 21:17:01",
+        "time": "2015-06-14T21:17:01+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -346,7 +346,7 @@
             "phpspec/prophecy-phpunit": "~1.0",
             "symfony/filesystem": "~2.2"
         },
-        "time": "2015-11-10 17:04:01",
+        "time": "2015-11-10T17:04:01+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -405,7 +405,7 @@
             "symfony/class-loader": "For using the ACL generateSql script",
             "symfony/finder": "For using the ACL generateSql script"
         },
-        "time": "2015-12-28 09:39:46",
+        "time": "2015-12-28T09:39:46+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -469,7 +469,7 @@
             "ext-memcached": "Caching with ext/memcached",
             "predis/predis": "Install redis php"
         },
-        "time": "2015-09-18 14:40:58",
+        "time": "2015-09-18T14:40:58+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -524,7 +524,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.7.*"
         },
-        "time": "2015-07-25 16:39:46",
+        "time": "2015-07-25T16:39:46+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -573,7 +573,7 @@
         "require": {
             "phpoption/phpoption": ">=0.9,<2.0-dev"
         },
-        "time": "2012-11-18 18:08:43",
+        "time": "2012-11-18T18:08:43+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -631,7 +631,7 @@
         "suggest": {
             "jms/di-extra-bundle": "Required to get lazy loading (de)serialization visitors, ~1.3"
         },
-        "time": "2015-11-10 12:26:42",
+        "time": "2015-11-10T12:26:42+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -685,7 +685,7 @@
         "require-dev": {
             "phpunit/phpunit": "~3.7"
         },
-        "time": "2014-01-20 22:35:06",
+        "time": "2014-01-20T22:35:06+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -724,7 +724,7 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2015-10-01 07:42:40",
+        "time": "2015-10-01T07:42:40+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -808,7 +808,7 @@
             "symfony/serializer": "Add support for basic serialization capabilities and xml decoding, requires ~2.3",
             "symfony/validator": "Add support for validation capabilities in the ParamFetcher, requires ~2.3"
         },
-        "time": "2015-12-29 16:02:50",
+        "time": "2015-12-29T16:02:50+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -867,7 +867,7 @@
             "php": ">=5.3.0",
             "sensio/generator-bundle": "~3.0"
         },
-        "time": "2016-04-18 12:29:38",
+        "time": "2016-04-18T12:29:38+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -915,7 +915,7 @@
         "suggest": {
             "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
         },
-        "time": "2016-04-12 18:27:47",
+        "time": "2016-04-12T18:27:47+00:00",
         "type": "symfony-bridge",
         "extra": {
             "branch-alias": {
@@ -972,7 +972,7 @@
         "suggest": {
             "ext-mbstring": "For best performance"
         },
-        "time": "2016-11-14 01:06:16",
+        "time": "2016-11-14T01:06:16+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1034,7 +1034,7 @@
             "symfony/debug": "~2.7",
             "symfony/phpunit-bridge": "~3.2"
         },
-        "time": "2017-01-11 19:36:15",
+        "time": "2017-01-11T19:36:15+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1093,7 +1093,7 @@
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2016-11-14 01:06:16",
+        "time": "2016-11-14T01:06:16+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1153,7 +1153,7 @@
         "suggest": {
             "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
         },
-        "time": "2016-11-07 23:38:38",
+        "time": "2016-11-07T23:38:38+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1198,7 +1198,7 @@
             "paragonie/random_compat": "~1.0|~2.0",
             "php": ">=5.3.3"
         },
-        "time": "2016-11-14 01:06:16",
+        "time": "2016-11-14T01:06:16+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1259,7 +1259,7 @@
             "php": ">=5.3.3",
             "symfony/polyfill-util": "~1.0"
         },
-        "time": "2016-11-14 01:06:16",
+        "time": "2016-11-14T01:06:16+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1320,7 +1320,7 @@
         "suggest": {
             "ext-intl": "For best performance"
         },
-        "time": "2016-11-14 01:06:16",
+        "time": "2016-11-14T01:06:16+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1376,7 +1376,7 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-10-10 12:19:37",
+        "time": "2016-10-10T12:19:37+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1425,7 +1425,7 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-08-06 20:24:11",
+        "time": "2016-08-06T20:24:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1477,7 +1477,7 @@
             "doctrine/coding-standard": "~0.1@dev",
             "phpunit/phpunit": "^5.7"
         },
-        "time": "2017-01-03 10:49:41",
+        "time": "2017-01-03T10:49:41+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1550,7 +1550,7 @@
             "predis/predis": "~1.0",
             "satooshi/php-coveralls": "~0.6"
         },
-        "time": "2016-10-29 11:16:17",
+        "time": "2016-10-29T11:16:17+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1619,7 +1619,7 @@
             "doctrine/cache": "1.*",
             "phpunit/phpunit": "^5.6.1"
         },
-        "time": "2016-12-30 15:59:45",
+        "time": "2016-12-30T15:59:45+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1692,7 +1692,7 @@
         "require-dev": {
             "phpunit/phpunit": "^5.4.6"
         },
-        "time": "2017-01-13 14:02:13",
+        "time": "2017-01-13T14:02:13+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1840,7 +1840,7 @@
             "symfony/polyfill-apcu": "~1.1",
             "symfony/security-acl": "~2.8|~3.0"
         },
-        "time": "2017-01-28 02:53:38",
+        "time": "2017-01-28T02:53:38+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1911,7 +1911,7 @@
         "suggest": {
             "symfony/console": "For helpful console commands such as SQL execution and import of files."
         },
-        "time": "2017-01-23 23:17:10",
+        "time": "2017-01-23T23:17:10+00:00",
         "bin": [
             "bin/doctrine-dbal"
         ],
@@ -1976,7 +1976,7 @@
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2016-11-14 01:06:16",
+        "time": "2016-11-14T01:06:16+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2052,7 +2052,7 @@
             "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
             "symfony/web-profiler-bundle": "To use the data collector."
         },
-        "time": "2017-01-16 12:01:26",
+        "time": "2017-01-16T12:01:26+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2118,7 +2118,7 @@
             "mockery/mockery": "~0.9.1",
             "symfony/phpunit-bridge": "~3.2"
         },
-        "time": "2016-12-29 10:02:40",
+        "time": "2016-12-29T10:02:40+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2183,7 +2183,7 @@
         "suggest": {
             "psr/log": "Allows logging"
         },
-        "time": "2016-12-20 04:44:33",
+        "time": "2016-12-20T04:44:33+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2261,7 +2261,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2016-11-26 00:15:39",
+        "time": "2016-11-26T00:15:39+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2321,7 +2321,7 @@
             "symfony/console": "~2.3|~3.0",
             "symfony/yaml": "~2.3|~3.0"
         },
-        "time": "2017-01-02 19:04:26",
+        "time": "2017-01-02T19:04:26+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2373,7 +2373,7 @@
         "require": {
             "symfony/console": "~2.7|~3.0"
         },
-        "time": "2016-09-23 18:09:57",
+        "time": "2016-09-23T18:09:57+00:00",
         "bin": [
             "security-checker"
         ],
@@ -2426,7 +2426,7 @@
             "symfony/http-kernel": "~2.3|~3.0",
             "symfony/process": "~2.3|~3.0"
         },
-        "time": "2017-01-10 14:58:45",
+        "time": "2017-01-10T14:58:45+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2496,7 +2496,7 @@
             "symfony/psr-http-message-bridge": "To use the PSR-7 converters",
             "symfony/security-bundle": ""
         },
-        "time": "2017-01-10 19:42:56",
+        "time": "2017-01-10T19:42:56+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2562,7 +2562,7 @@
             "symfony/property-access": "^2.3 || ^3.0",
             "symfony/routing": "^2.3 || ^3.0"
         },
-        "time": "2016-08-17 08:25:58",
+        "time": "2016-08-17T08:25:58+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2633,7 +2633,7 @@
             "zendframework/zend-servicemanager": "~2.2",
             "zendframework/zend-view": "~2.2"
         },
-        "time": "2016-08-09 20:10:17",
+        "time": "2016-08-09T20:10:17+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2686,7 +2686,7 @@
         "suggest": {
             "symfony/translation": "Allow the time_diff output to be translated"
         },
-        "time": "2016-10-25 17:34:14",
+        "time": "2016-10-25T17:34:14+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2759,7 +2759,7 @@
             "sonata-project/exporter": "^1.3",
             "symfony/phpunit-bridge": "^2.7"
         },
-        "time": "2017-01-20 09:25:37",
+        "time": "2017-01-20T09:25:37+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2828,7 +2828,7 @@
             "knplabs/knp-menu-bundle": "^2.0",
             "sonata-project/cache-bundle": "^3.0"
         },
-        "time": "2017-01-17 11:56:59",
+        "time": "2017-01-17T11:56:59+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -2899,7 +2899,7 @@
             "silex/silex": "for the integration with your silex application",
             "twig/twig": "for the TwigRenderer and the integration with your templates"
         },
-        "time": "2016-09-22 07:36:19",
+        "time": "2016-09-22T07:36:19+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2960,7 +2960,7 @@
             "symfony/expression-language": "~2.4|~3.0",
             "symfony/phpunit-bridge": "~2.7|~3.0"
         },
-        "time": "2016-09-22 12:24:40",
+        "time": "2016-09-22T12:24:40+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -3055,7 +3055,7 @@
             "sensio/generator-bundle": "Add sonata:admin:generate command",
             "sonata-project/intl-bundle": "Add localized date and number into the list"
         },
-        "time": "2017-01-17 09:57:50",
+        "time": "2017-01-17T09:57:50+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -3127,7 +3127,7 @@
         "suggest": {
             "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
         },
-        "time": "2016-12-18 15:42:34",
+        "time": "2016-12-18T15:42:34+00:00",
         "bin": [
             "bin/doctrine",
             "bin/doctrine.php"
@@ -3213,7 +3213,7 @@
         "suggest": {
             "simplethings/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
         },
-        "time": "2017-01-17 11:10:17",
+        "time": "2017-01-17T11:10:17+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -3280,7 +3280,7 @@
             "doctrine/orm": "~2.4",
             "symfony/doctrine-bridge": "~2.7|~3.0"
         },
-        "time": "2016-12-05 16:01:19",
+        "time": "2016-12-05T16:01:19+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -3330,7 +3330,7 @@
             "matthiasnoback/symfony-dependency-injection-test": "^0.7.6",
             "mockery/mockery": "0.9.*"
         },
-        "time": "2017-01-22 21:34:09",
+        "time": "2017-01-22T21:34:09+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -3385,7 +3385,7 @@
         "require": {
             "phpoption/phpoption": "1.*"
         },
-        "time": "2015-05-17 12:39:23",
+        "time": "2015-05-17T12:39:23+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3439,7 +3439,7 @@
             "doctrine/cache": "~1.0",
             "symfony/cache": "~3.1"
         },
-        "time": "2016-12-05 10:18:33",
+        "time": "2016-12-05T10:18:33+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3514,7 +3514,7 @@
         "suggest": {
             "symfony/yaml": "Required if you'd like to serialize data to YAML format."
         },
-        "time": "2016-11-13 10:20:11",
+        "time": "2016-11-13T10:20:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3545,6 +3545,246 @@
             "json",
             "serialization",
             "xml"
+        ]
+    },
+    {
+        "name": "doctrine/mongodb",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/mongodb.git",
+            "reference": "293ad1ee54b507e269d6a1309dbeb8c00621b00e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/mongodb/zipball/293ad1ee54b507e269d6a1309dbeb8c00621b00e",
+            "reference": "293ad1ee54b507e269d6a1309dbeb8c00621b00e",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/common": "^2.2",
+            "ext-mongo": "^1.5",
+            "php": "^5.6 || ^7.0"
+        },
+        "require-dev": {
+            "jmikola/geojson": "^1.0",
+            "phpunit/phpunit": "~4.8|~5.0"
+        },
+        "suggest": {
+            "alcaeus/mongo-php-adapter": "Allows usage of PHP 7",
+            "jmikola/geojson": "Support GeoJSON geometry objects in 2dsphere queries"
+        },
+        "time": "2016-11-22T19:01:59+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\MongoDB": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan H. Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Jeremy Mikola",
+                "email": "jmikola@gmail.com"
+            },
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com"
+            },
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com"
+            },
+            {
+                "name": "Maciej Malarz",
+                "email": "malarzm@gmail.com"
+            },
+            {
+                "name": "Andreas Braun",
+                "email": "alcaeus@alcaeus.org"
+            }
+        ],
+        "description": "Doctrine MongoDB Abstraction Layer",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "mongodb",
+            "persistence"
+        ]
+    },
+    {
+        "name": "doctrine/mongodb-odm",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/mongodb-odm.git",
+            "reference": "12611cff4ff66cd6e1ebf0b56a7754a537572318"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/12611cff4ff66cd6e1ebf0b56a7754a537572318",
+            "reference": "12611cff4ff66cd6e1ebf0b56a7754a537572318",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/annotations": "~1.0",
+            "doctrine/cache": "~1.0",
+            "doctrine/collections": "~1.1",
+            "doctrine/common": "~2.4",
+            "doctrine/inflector": "~1.0",
+            "doctrine/instantiator": "~1.0.1",
+            "doctrine/mongodb": "~1.3",
+            "php": "^5.6 || ^7.0",
+            "symfony/console": "~2.3|~3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~5.4",
+            "symfony/yaml": "~2.3|~3.0"
+        },
+        "suggest": {
+            "alcaeus/mongo-php-adapter": "Allows usage of PHP 7",
+            "symfony/yaml": "Enables the YAML metadata mapping driver"
+        },
+        "time": "2017-01-14T17:19:01+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\ODM\\MongoDB": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan H. Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Jeremy Mikola",
+                "email": "jmikola@gmail.com"
+            },
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com"
+            },
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com"
+            },
+            {
+                "name": "Maciej Malarz",
+                "email": "malarzm@gmail.com"
+            },
+            {
+                "name": "Andreas Braun",
+                "email": "alcaeus@alcaeus.org"
+            }
+        ],
+        "description": "Doctrine MongoDB Object Document Mapper",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "mongodb",
+            "odm",
+            "persistence"
+        ]
+    },
+    {
+        "name": "doctrine/mongodb-odm-bundle",
+        "version": "3.2.1",
+        "version_normalized": "3.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/DoctrineMongoDBBundle.git",
+            "reference": "9ad10aa1c64fe140537ebb1306fe0f4d2357f6fd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/DoctrineMongoDBBundle/zipball/9ad10aa1c64fe140537ebb1306fe0f4d2357f6fd",
+            "reference": "9ad10aa1c64fe140537ebb1306fe0f4d2357f6fd",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/mongodb-odm": "^1.1",
+            "php": "^5.6 || ^7.0",
+            "psr/log": "^1.0",
+            "symfony/config": "^2.7 || ^3.0",
+            "symfony/console": "^2.7 || ^3.0",
+            "symfony/dependency-injection": "^2.7 || ^3.0",
+            "symfony/doctrine-bridge": "^2.7 || ^3.0",
+            "symfony/framework-bundle": "^2.7 || ^3.0",
+            "symfony/options-resolver": "^2.7 || ^3.0"
+        },
+        "require-dev": {
+            "doctrine/data-fixtures": "@dev",
+            "phpunit/phpunit": "^5.6",
+            "symfony/form": "^2.7 || ^3.0",
+            "symfony/phpunit-bridge": "^2.7 || ^3.0",
+            "symfony/yaml": "^2.7 || ^3.0"
+        },
+        "suggest": {
+            "doctrine/data-fixtures": "Load data fixtures"
+        },
+        "time": "2016-12-08T07:05:40+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\Bundle\\MongoDBBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris@symfony.com"
+            },
+            {
+                "name": "Jonathan H. Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com"
+            }
+        ],
+        "description": "Symfony2 Doctrine MongoDB Bundle",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "mongodb",
+            "persistence",
+            "symfony"
         ]
     }
 ]

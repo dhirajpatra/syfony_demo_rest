@@ -10,3 +10,4 @@ parameters:
     mailer_user: dhiraj.patra@gmail.com
     mailer_password: gmailtanusree
     secret: 86afdeeed42059123904d640fc09d05847231285
+    mongodb_server: "mongodb://localhost:27017"

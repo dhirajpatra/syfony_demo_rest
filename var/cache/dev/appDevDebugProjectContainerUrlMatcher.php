@@ -100,72 +100,97 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        if (0 === strpos($pathinfo, '/acme/test')) {
-            // create
-            if ($pathinfo === '/acme/test/default/create') {
-                return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::createAction',  '_route' => 'create',);
-            }
-
-            if (0 === strpos($pathinfo, '/acme/test/acme/test/api/products')) {
-                // acme_test_api_product_new
-                if ($pathinfo === '/acme/test/acme/test/api/products') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_acme_test_api_product_new;
-                    }
-
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::newAction',  '_route' => 'acme_test_api_product_new',);
-                }
-                not_acme_test_api_product_new:
-
-                // show
-                if ($pathinfo === '/acme/test/acme/test/api/products/show') {
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::showAction',  '_route' => 'show',);
-                }
-
-                // update
-                if ($pathinfo === '/acme/test/acme/test/api/products/update') {
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::updateAction',  '_route' => 'update',);
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/acme/test/default')) {
-                // AcmeTestBundle
-                if ($pathinfo === '/acme/test/default/index') {
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::indexAction',  '_route' => 'AcmeTestBundle',);
-                }
-
-                // AcmeTestBundle_create
-                if (rtrim($pathinfo, '/') === '/acme/test/default/create') {
+        if (0 === strpos($pathinfo, '/acme')) {
+            if (0 === strpos($pathinfo, '/acme/store')) {
+                // acme_store_default_index
+                if (rtrim($pathinfo, '/') === '/acme/store') {
                     if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'AcmeTestBundle_create');
+                        return $this->redirect($pathinfo.'/', 'acme_store_default_index');
                     }
 
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::createAction',  '_route' => 'AcmeTestBundle_create',);
+                    return array (  '_controller' => 'Acme\\StoreBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_store_default_index',);
                 }
 
-                // AcmeTestBundle_show
-                if (0 === strpos($pathinfo, '/acme/test/default/show') && preg_match('#^/acme/test/default/show/(?P<productId>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'AcmeTestBundle_show')), array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::showAction',));
+                // acme_store_default_create
+                if ($pathinfo === '/acme/store/create') {
+                    return array (  '_controller' => 'Acme\\StoreBundle\\Controller\\DefaultController::createAction',  '_route' => 'acme_store_default_create',);
+                }
+
+                // acme_store_default_show
+                if (0 === strpos($pathinfo, '/acme/store/show') && preg_match('#^/acme/store/show/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'acme_store_default_show')), array (  '_controller' => 'Acme\\StoreBundle\\Controller\\DefaultController::showAction',));
                 }
 
             }
 
-            // AcmeTestBundle_update
-            if (0 === strpos($pathinfo, '/acme/test/update') && preg_match('#^/acme/test/update/(?P<productId>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'AcmeTestBundle_update')), array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::updateAction',));
-            }
-
-            if (0 === strpos($pathinfo, '/acme/test/api/products')) {
-                // AcmeTestBundle_api_new
-                if ($pathinfo === '/acme/test/api/products') {
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::newAction',  '_route' => 'AcmeTestBundle_api_new',);
+            if (0 === strpos($pathinfo, '/acme/test')) {
+                // create
+                if ($pathinfo === '/acme/test/default/create') {
+                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::createAction',  '_route' => 'create',);
                 }
 
-                // AcmeTestBundle_api_show
-                if ($pathinfo === '/acme/test/api/products/show') {
-                    return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::showAction',  '_route' => 'AcmeTestBundle_api_show',);
+                if (0 === strpos($pathinfo, '/acme/test/acme/test/api/products')) {
+                    // acme_test_api_product_new
+                    if ($pathinfo === '/acme/test/acme/test/api/products') {
+                        if ($this->context->getMethod() != 'POST') {
+                            $allow[] = 'POST';
+                            goto not_acme_test_api_product_new;
+                        }
+
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::newAction',  '_route' => 'acme_test_api_product_new',);
+                    }
+                    not_acme_test_api_product_new:
+
+                    // show
+                    if ($pathinfo === '/acme/test/acme/test/api/products/show') {
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::showAction',  '_route' => 'show',);
+                    }
+
+                    // update
+                    if ($pathinfo === '/acme/test/acme/test/api/products/update') {
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::updateAction',  '_route' => 'update',);
+                    }
+
+                }
+
+                if (0 === strpos($pathinfo, '/acme/test/default')) {
+                    // AcmeTestBundle
+                    if ($pathinfo === '/acme/test/default/index') {
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::indexAction',  '_route' => 'AcmeTestBundle',);
+                    }
+
+                    // AcmeTestBundle_create
+                    if (rtrim($pathinfo, '/') === '/acme/test/default/create') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'AcmeTestBundle_create');
+                        }
+
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::createAction',  '_route' => 'AcmeTestBundle_create',);
+                    }
+
+                    // AcmeTestBundle_show
+                    if (0 === strpos($pathinfo, '/acme/test/default/show') && preg_match('#^/acme/test/default/show/(?P<productId>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'AcmeTestBundle_show')), array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::showAction',));
+                    }
+
+                }
+
+                // AcmeTestBundle_update
+                if (0 === strpos($pathinfo, '/acme/test/update') && preg_match('#^/acme/test/update/(?P<productId>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'AcmeTestBundle_update')), array (  '_controller' => 'Acme\\TestBundle\\Controller\\Web\\DefaultController::updateAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/acme/test/api/products')) {
+                    // AcmeTestBundle_api_new
+                    if ($pathinfo === '/acme/test/api/products') {
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::newAction',  '_route' => 'AcmeTestBundle_api_new',);
+                    }
+
+                    // AcmeTestBundle_api_show
+                    if ($pathinfo === '/acme/test/api/products/show') {
+                        return array (  '_controller' => 'Acme\\TestBundle\\Controller\\Api\\ProductController::showAction',  '_route' => 'AcmeTestBundle_api_show',);
+                    }
+
                 }
 
             }

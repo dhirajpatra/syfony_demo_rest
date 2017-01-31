@@ -83,6 +83,7 @@ class ComposerStaticInit5b9d1cffa82704c6a96e56bbdc329bbd
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+            'Doctrine\\Bundle\\MongoDBBundle\\' => 30,
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
         ),
@@ -245,6 +246,10 @@ class ComposerStaticInit5b9d1cffa82704c6a96e56bbdc329bbd
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
+        'Doctrine\\Bundle\\MongoDBBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/mongodb-odm-bundle',
+        ),
         'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-cache-bundle',
@@ -338,6 +343,14 @@ class ComposerStaticInit5b9d1cffa82704c6a96e56bbdc329bbd
             'Doctrine\\ORM\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/orm/lib',
+            ),
+            'Doctrine\\ODM\\MongoDB' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/mongodb-odm/lib',
+            ),
+            'Doctrine\\MongoDB' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/mongodb/lib',
             ),
             'Doctrine\\DBAL\\' => 
             array (

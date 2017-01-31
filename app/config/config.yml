@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@AcmeStoreBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -38,6 +39,16 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     cache:  false
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: symfony_demo
+    document_managers:
+        default:
+            auto_mapping: true
 
 # Doctrine Configuration
 doctrine:
@@ -119,3 +130,4 @@ sensio_framework_extra:
     request: { converters: true }
     view:    { annotations: false }
     router:  { annotations: true }
+
