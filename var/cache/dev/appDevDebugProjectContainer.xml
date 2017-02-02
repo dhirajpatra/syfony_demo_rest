@@ -155,17 +155,17 @@
     <parameter key="database_port">null</parameter>
     <parameter key="database_name">symfony</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">tanusree1</parameter>
+    <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">localhost</parameter>
-    <parameter key="mailer_user">dhiraj.patra@gmail.com</parameter>
-    <parameter key="mailer_password">gmailtanusree</parameter>
-    <parameter key="secret">86afdeeed42059123904d640fc09d05847231285</parameter>
+    <parameter key="mailer_user">null</parameter>
+    <parameter key="mailer_password">null</parameter>
+    <parameter key="secret">fdfd64fd6sfd1fs6df4d6f46df6da</parameter>
     <parameter key="mongodb_server">mongodb://localhost:27017</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
-    <parameter key="kernel.secret">86afdeeed42059123904d640fc09d05847231285</parameter>
+    <parameter key="kernel.secret">fdfd64fd6sfd1fs6df4d6f46df6da</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
@@ -297,8 +297,8 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.host">localhost</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.username">dhiraj.patra@gmail.com</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.password">gmailtanusree</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.username">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.password">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
@@ -1108,7 +1108,7 @@
                   <tag name="cache.pool"/>
                   <argument>sHD5JfZhKX</argument>
                   <argument>0</argument>
-                  <argument>ZqUd2a0LLNPVNYZYeNwbx3</argument>
+                  <argument>AOLSxeaBtKL9G+lDu1LrLc</argument>
                   <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1121,7 +1121,7 @@
                   <tag name="cache.pool"/>
                   <argument>VzEjjB4onq</argument>
                   <argument>0</argument>
-                  <argument>ZqUd2a0LLNPVNYZYeNwbx3</argument>
+                  <argument>AOLSxeaBtKL9G+lDu1LrLc</argument>
                   <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1143,7 +1143,7 @@
       <argument>/var/www/html/symfony_demo/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
-      <argument>86afdeeed42059123904d640fc09d05847231285</argument>
+      <argument>fdfd64fd6sfd1fs6df4d6f46df6da</argument>
     </service>
     <service id="config_cache_factory" class="Symfony\Component\Config\ResourceCheckerConfigCacheFactory">
       <argument type="collection">
@@ -1751,7 +1751,7 @@
       <tag name="cache.pool"/>
       <argument>AaLQ1GWfQJ</argument>
       <argument>0</argument>
-      <argument>ZqUd2a0LLNPVNYZYeNwbx3</argument>
+      <argument>AOLSxeaBtKL9G+lDu1LrLc</argument>
       <argument>/var/www/html/symfony_demo/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -2552,7 +2552,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>588f30e3be6eb6.38352772</argument>
+            <argument>58931245eeee49.62336701</argument>
           </service>
         </argument>
       </argument>
@@ -2686,7 +2686,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>588f30e3be6eb6.38352772</argument>
+            <argument>58931245eeee49.62336701</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3059,7 +3059,7 @@
         <argument key="port">null</argument>
         <argument key="dbname">symfony</argument>
         <argument key="user">root</argument>
-        <argument key="password">tanusree1</argument>
+        <argument key="password">null</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
       </argument>
@@ -5393,10 +5393,10 @@
               </argument>
             </argument>
             <call method="setUsername">
-              <argument>dhiraj.patra@gmail.com</argument>
+              <argument>null</argument>
             </call>
             <call method="setPassword">
-              <argument>gmailtanusree</argument>
+              <argument>null</argument>
             </call>
             <call method="setAuthMode">
               <argument>null</argument>

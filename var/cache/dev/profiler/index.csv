@@ -12,3 +12,6 @@ a6e0ce,127.0.0.1,GET,http://symfony_demo/acme/store/show,1485780381,2a3238,200
 2a3238,127.0.0.1,GET,http://symfony_demo/acme/store/show,1485780381,,404
 9e1558,127.0.0.1,GET,http://symfony_demo/acme/store/show/1,1485780387,228d83,200
 228d83,127.0.0.1,GET,http://symfony_demo/acme/store/show/1,1485780387,,500
+77cfbe,127.0.0.1,GET,http://symfony_demo/,1486033482,910953,200
+910953,127.0.0.1,GET,http://symfony_demo/,1486033482,,404
+74359c,127.0.0.1,GET,http://symfony_demo/acme/store/,1486033516,,200
